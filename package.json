@@ -1,5 +1,5 @@
 {
-  "name": "bumperballs",
+  "name": "winke",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ThomasAndrewMacLean/bumperballs.git"
+    "url": "git+https://github.com/ThomasAndrewMacLean/winke.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ThomasAndrewMacLean/bumperballs/issues"
+    "url": "https://github.com/ThomasAndrewMacLean/winke/issues"
   },
-  "homepage": "https://github.com/ThomasAndrewMacLean/bumperballs#readme",
+  "homepage": "https://github.com/ThomasAndrewMacLean/winke#readme",
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "airtable": "^0.8.1",
@@ -27,7 +27,7 @@
     "dayjs": "^1.8.24",
     "dotenv": "^8.2.0",
     "marked": "^0.8.2",
-    "next": "^9.3.3",
+    "next": "^9.4.2",
     "next-pwa": "^2.3.3",
     "nodemailer": "^6.4.6",
     "prop-types": "^15.7.2",

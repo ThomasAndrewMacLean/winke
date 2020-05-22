@@ -1,25 +1,21 @@
 import React from 'react';
 import Head from 'next/head';
-import styled from 'styled-components';
-import { T, Menu } from '../components';
+import { Layout } from '../components';
 
 const IndexPage = () => {
   return (
-    <Main>
+    <Layout>
       <Head>
-        <title>Winke</title>
+        <title>Winke - expo</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
         />
       </Head>
-      <Menu />
-    </Main>
+
+      <h1>expo</h1>
+    </Layout>
   );
 };
-
-const Main = styled.main`
-  background: var(--background);
-`;
 
 export default IndexPage;

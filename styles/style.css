@@ -1,8 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400&display=swap'); */
 
 :root {
-  --background-dark: #77f;
+  --background: #fff;
+  --background-dark: #333333;
   --border: 3px solid black;
+
+  --light: #999;
+  
 }
 * {
   margin: 0;
@@ -16,7 +20,7 @@
 }
 html,
 body {
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
 
   width: 100%;
   overflow-x: hidden;
@@ -29,4 +33,3 @@ ul {
 li {
   padding-bottom: 0.5rem;
 }
-
