@@ -13,3 +13,5 @@ create new sheet,
 copy sheet id in google cloud function
 add email to google sheet share
 add allUsers to cloud function
+
+!!!"export": "next export && mv .next/sw.js out/sw.js && mv .next/workbox\* out"
