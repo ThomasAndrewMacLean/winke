@@ -13,12 +13,16 @@ const Translation = ({ translationKey }) => {
     }
   }, []);
   const translationsFromContext = useContext(TranslationContext);
-  const translation = translationsFromContext.find((t) => t.id === translationKey);
+  const translation = translationsFromContext.find(
+    (t) => t.id === translationKey
+  );
   return (
     <span
       className={showKeys ? 'showKeys' : ''}
       dangerouslySetInnerHTML={{
-        __html: marked(translation && !showKeys ? translation.NL : translationKey),
+        __html: marked(
+          translation && !showKeys ? translation.NL : translationKey
+        ),
       }}
     ></span>
   );
@@ -28,14 +32,14 @@ Translation.propTypes = {
   translationKey: PropTypes.string.isRequired,
 };
 
-export async function getStaticProps() {
-    // calls page's `getInitialProps` and fills `appProps.pageProps`
-    const texts = await base('Text').select().all();
-    const pics = await base('Images').select().all();
-  
-    return {
-      translations: texts.map((x) => x.fields),
-      pics: pics.map((x) => x.fields),
-    };
-  }
+// export async function getStaticProps() {
+//     // calls page's `getInitialProps` and fills `appProps.pageProps`
+//     const texts = await base('Text').select().all();
+//     const pics = await base('Images').select().all();
+
+//     return {
+//       translations: texts.map((x) => x.fields),
+//       pics: pics.map((x) => x.fields),
+//     };
+//   }
 export default Translation;
