@@ -6,7 +6,7 @@ export const [useStore] = create((set, get) => ({
     const { count } = get();
     return set(() => ({ count: count + 1 }));
   },
-  currentNavLink: '/',
+  currentNavLink: '/about',
   setCurrentNavLink: (newNavLink) => {
     return set(() => ({ currentNavLink: newNavLink }));
   },

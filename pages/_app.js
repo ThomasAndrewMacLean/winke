@@ -2,9 +2,6 @@ import App from 'next/app';
 import React, { createContext } from 'react';
 import '../styles/style.css';
 import Airtable from 'airtable';
-const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
-  process.env.AIRTABLE_APP
-);
 
 export const TranslationContext = createContext([]);
 export const PictureContext = createContext([]);
@@ -25,6 +22,9 @@ function MyApp({ Component, pageProps, translations, pics }) {
 // be server-side rendered.
 //
 MyApp.getInitialProps = async (appContext) => {
+  const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
+    process.env.AIRTABLE_APP
+  );
   // calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext);
   const texts = await base('Text').select().all();

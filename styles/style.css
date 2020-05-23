@@ -6,7 +6,6 @@
   --border: 3px solid black;
 
   --light: #999;
-  
 }
 * {
   margin: 0;
@@ -20,8 +19,7 @@
 }
 html,
 body {
-  font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
-
+  font-family: Helvetica Neue, Helvetica, Arial, Verdana, Tahoma, sans-serif;
   width: 100%;
   overflow-x: hidden;
 }
@@ -32,4 +30,11 @@ ul {
 
 li {
   padding-bottom: 0.5rem;
+}
+
+blockquote {
+  padding-bottom: 1rem;
+}
+blockquote:last-of-type {
+  padding-bottom: 2rem;
 }

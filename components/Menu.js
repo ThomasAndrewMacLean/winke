@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useStore } from '../store';
 
 const Menu = () => {
   const { currentNavLink, setCurrentNavLink } = useStore();
-  const [currentLink, currentLinkSet] = useState('');
-  //   useEffect(() => {
-  //     currentLinkSet(window.location.pathname);
-  //   }, []);
+
   return (
     <Nav>
       <ul>

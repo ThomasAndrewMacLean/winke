@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { Layout } from '../components';
+import { Layout, T } from '../components';
 
 const IndexPage = () => {
   return (
@@ -13,7 +13,11 @@ const IndexPage = () => {
         />
       </Head>
 
-      <h1>ABOUT</h1>
+      <h2>
+        <T translationKey="aboutTitle" />
+      </h2>
+
+      <T translationKey="aboutText" />
     </Layout>
   );
 };
