@@ -1,7 +1,6 @@
 import App from 'next/app';
 import React, { createContext } from 'react';
 import '../styles/style.css';
-import Airtable from 'airtable';
 
 export const TranslationContext = createContext([]);
 export const PictureContext = createContext([]);
@@ -22,18 +21,24 @@ function MyApp({ Component, pageProps, translations, pics }) {
 // be server-side rendered.
 //
 MyApp.getInitialProps = async (appContext) => {
-  const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
-    process.env.AIRTABLE_APP
-  );
+  const url =
+    'https://europe-west1-thomasmaclean.cloudfunctions.net/getDataAirtable';
+  const dataFromAirtableJson = await fetch(url, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ airtableApp: process.env.AIRTABLE_APP }),
+  });
+  const dataFromAirtable = await dataFromAirtableJson.json();
+
   // calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext);
-  const texts = await base('Text').select().all();
-  const pics = await base('Images').select().all();
 
   return {
     ...appProps,
-    translations: texts.map((x) => x.fields),
-    pics: pics.map((x) => x.fields),
+    ...dataFromAirtable,
   };
 };
 
