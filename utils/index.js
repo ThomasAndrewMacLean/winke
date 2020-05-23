@@ -3,7 +3,7 @@ export const add = (a, b) => {
 };
 
 const isProduction = process.env.NODE_ENV === 'production';
-export const prefix = isProduction ? '/winke' : '';
+export const prefix = isProduction ? '' : '';
 
 export const getImageUrl = (context, id, full) => {
   return full
