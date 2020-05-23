@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
-import { PictureContext } from '../pages/_app';
-import PropTypes from 'prop-types';
-import { getImageUrl } from '../utils';
+// import React, { useContext } from 'react';
+// import { PictureContext } from '../pages/_app';
+// import PropTypes from 'prop-types';
+// import { getImageUrl } from '../utils';
 
-const Image = ({ id }) => {
-  const pics = useContext(PictureContext);
-  return <img src={getImageUrl(pics, id, true)}></img>;
-};
+// const Image = ({ id }) => {
+//   const pics = useContext(PictureContext);
+//   return <img src={getImageUrl(pics, id, true)}></img>;
+// };
 
-Image.propTypes = {
-  id: PropTypes.string.isRequired,
-};
+// Image.propTypes = {
+//   id: PropTypes.string.isRequired,
+// };
 
-export default Image;
+// export default Image;

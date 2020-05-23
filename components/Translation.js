@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import marked from 'marked';
-import { TranslationContext } from '../pages/_app';
+import { TranslationContext } from '../utils/contexts';
 import PropTypes from 'prop-types';
 
 const Translation = ({ translationKey }) => {
@@ -12,7 +12,7 @@ const Translation = ({ translationKey }) => {
       }
     }
   }, []);
-  const translationsFromContext = useContext(TranslationContext);
+  const translationsFromContext = useContext(TranslationContext) || [];
   const translation = translationsFromContext.find(
     (t) => t.id === translationKey
   );

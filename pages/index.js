@@ -1,25 +1,28 @@
 import React from 'react';
 import Head from 'next/head';
-import styled from 'styled-components';
-import { T, Menu } from '../components';
+import { Layout } from '../components';
+import { getDataFromAirtable } from '../utils';
+import { TranslationContext } from '../utils/contexts';
 
-const IndexPage = () => {
+const IndexPage = ({ translations }) => {
   return (
-    <Main>
-      <Head>
-        <title>Winke</title>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-        />
-      </Head>
-      <Menu />
-    </Main>
+    <TranslationContext.Provider value={translations}>
+      <Layout>
+        <Head>
+          <title>Winke</title>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+          />
+        </Head>
+      </Layout>
+    </TranslationContext.Provider>
   );
 };
 
-const Main = styled.main`
-  background: var(--background);
-`;
+export const getStaticProps = async () => {
+  const data = await getDataFromAirtable();
+  return { props: data };
+};
 
 export default IndexPage;
