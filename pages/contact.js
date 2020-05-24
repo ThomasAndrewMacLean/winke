@@ -17,7 +17,7 @@ const IndexPage = ({ translations }) => {
 
         <h1>contact</h1>
       </Layout>
-    {/* </TranslationContext.Provider> */}
+    // </TranslationContext.Provider> */}
   );
 };
 // export const getStaticProps = async () => {
