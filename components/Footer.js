@@ -33,6 +33,7 @@ const SiteFooter = styled.footer`
   bottom: 0;
   right: 0;
   left: 0;
+  font-size: 12px;
 
   padding: 2rem 4rem;
   address {

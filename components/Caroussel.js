@@ -8,7 +8,7 @@ const Caroussel = () => {
   const scrollNext = () => {
     ref.current.scrollBy({
       top: 0,
-      left: window.innerWidth,
+      left: ref.current.clientWidth,
       behavior: 'smooth',
     });
   };
@@ -16,7 +16,7 @@ const Caroussel = () => {
   const scrollPrevious = () => {
     ref.current.scrollBy({
       top: 0,
-      left: -window.innerWidth,
+      left: -ref.current.clientWidth,
       behavior: 'smooth',
     });
   };

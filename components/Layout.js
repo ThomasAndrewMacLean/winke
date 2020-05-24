@@ -11,9 +11,7 @@ const Layout = ({ children }) => {
         <Menu></Menu>
 
         <Title href="#home">
-          <h1>
-            <T translationKey="title" />
-          </h1>
+          <T translationKey="title" />
         </Title>
       </Header>
       <Main>{children}</Main>
