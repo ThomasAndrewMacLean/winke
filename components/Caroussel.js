@@ -40,7 +40,8 @@ const Caroussel = () => {
 };
 
 const ScrollWrapper = styled.div`
-  width: calc(50vw + 300px);
+  margin-left: -100px;
+  width: calc(50vw + 300px + 100px);
   position: relative;
 `;
 const NextButton = styled.button`
