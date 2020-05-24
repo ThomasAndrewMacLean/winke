@@ -33,6 +33,11 @@ const Nav = styled.nav`
   ul {
     list-style: none;
   }
+
+  @media (max-width: ${(props) => props.theme.medium}) {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
 `;
 
 const NavLink = styled.li`

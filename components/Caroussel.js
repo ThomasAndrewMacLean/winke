@@ -43,6 +43,11 @@ const ScrollWrapper = styled.div`
   margin-left: -100px;
   width: calc(50vw + 300px + 100px);
   position: relative;
+
+  @media (max-width: ${(props) => props.theme.medium}) {
+    margin-left: -10vw;
+    width: 100vw;
+  }
 `;
 const NextButton = styled.button`
   border: none;
@@ -52,6 +57,7 @@ const NextButton = styled.button`
   color: var(--light);
   font-weight: 100;
   right: 4rem;
+  padding: 20px;
   top: 50%;
   outline: none;
   font-size: 2rem;
@@ -61,6 +67,9 @@ const NextButton = styled.button`
 
     color: var(--darker-text);
   }
+  @media (max-width: ${(props) => props.theme.medium}) {
+    right: 0;
+  }
 `;
 
 const PreviousButton = styled.button`
@@ -69,6 +78,7 @@ const PreviousButton = styled.button`
   position: absolute;
   cursor: pointer;
   color: var(--light);
+  padding: 20px;
   font-weight: 100;
   left: 0;
   top: 50%;
@@ -96,6 +106,11 @@ const Scroll = styled.ul`
   overflow: -moz-scrollbars-none; /* Firefox */
   scrollbar-width: none; /* Firefox 64 */
   -ms-overflow-style: none; /* IE */
+
+  @media (max-width: ${(props) => props.theme.medium}) {
+    margin-left: 0;
+    width: 100vw;
+  }
 `;
 const ScrollItem = styled.li`
   flex: none;
@@ -103,6 +118,11 @@ const ScrollItem = styled.li`
     height: 100%;
     scroll-snap-align: start;
     width: calc(50vw + 300px + 100px);
+
+    @media (max-width: ${(props) => props.theme.medium}) {
+      margin-left: 0;
+      width: 100vw;
+    }
   }
   img {
     height: 100%;

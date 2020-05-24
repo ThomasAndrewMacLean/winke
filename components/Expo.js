@@ -1,6 +1,7 @@
 import React from 'react';
 import { Section } from '../styles';
 import { T } from './index';
+import styled from 'styled-components';
 
 const ExpoSection = () => {
   return (
@@ -11,7 +12,7 @@ const ExpoSection = () => {
 
       <T translationKey="expoText" />
 
-      <iframe
+      <Iframe
         style={{ marginTop: '3rem' }}
         width="560"
         height="315"
@@ -19,9 +20,14 @@ const ExpoSection = () => {
         frameBorder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
-      ></iframe>
+      ></Iframe>
     </Section>
   );
 };
-
+const Iframe = styled.iframe`
+  @media (max-width: ${(props) => props.theme.medium}) {
+    width: 100vw;
+    margin-left: -10vw;
+  }
+`;
 export default ExpoSection;

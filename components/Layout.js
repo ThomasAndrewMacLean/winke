@@ -7,7 +7,7 @@ import { useStore } from '../store';
 
 const Layout = ({ children }) => {
   const ref = useRef();
-  const { setAreAtTop } = useStore();
+  const { setAreAtTop, areAtTop } = useStore();
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -31,15 +31,15 @@ const Layout = ({ children }) => {
       <Header>
         <Menu></Menu>
 
-        <Title href="#home">
+        <Title areAtTop={areAtTop} href="#home">
           <T translationKey="title" />
         </Title>
       </Header>
       <Main>
         <Top ref={ref}></Top>
         {children}
+        <Footer></Footer>
       </Main>
-      <Footer></Footer>
     </Wrapper>
   );
 };
@@ -56,6 +56,9 @@ const Main = styled.main`
   height: 100vh;
   width: 100vw;
   scroll-behavior: smooth;
+  @media (max-width: ${(props) => props.theme.medium}) {
+    scroll-snap-type: inherit;
+  }
 `;
 
 const Title = styled.a`
@@ -65,6 +68,14 @@ const Title = styled.a`
   right: 0;
   top: 0;
   padding: 2rem 4rem;
+  transition: all 300ms ease;
+  transform-origin: right bottom;
+  @media (max-width: ${(props) => props.theme.medium}) {
+    transform: ${(props) =>
+      props.areAtTop ? '' : 'rotate(-90deg) scale(0.5)'};
+    padding: ${(props) => (props.areAtTop ? '2rem 4rem' : '0')};
+    margin-top: ${(props) => (props.areAtTop ? '' : '-2rem')};
+  }
   h1 {
     font-weight: 100;
   }
