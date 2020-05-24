@@ -33,7 +33,7 @@ const Main = styled.main`
 
 const Title = styled.a`
   text-decoration: none;
-  color: inherit;
+  color: var(--grey-blue);
   position: fixed;
   right: 0;
   top: 0;

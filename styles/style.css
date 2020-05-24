@@ -5,6 +5,7 @@
   --background-dark: #333333;
   --border: 3px solid black;
   --darker-text: #333;
+  --grey-blue: #454754;
   --text: #666;
   --light: #999;
 }
@@ -28,7 +29,7 @@ body {
   scroll-behavior: smooth;
   background: linear-gradient(
     0deg,
-    rgba(204, 204, 204, 1) 0%,
+    rgba(210, 210, 210, 1) 0%,
     rgba(255, 255, 255, 1) 100%
   );
 }
@@ -55,6 +56,10 @@ blockquote:last-of-type {
 h2 {
   color: var(--darker-text);
   margin-bottom: 2rem;
+}
+em,
+b {
+  color: var(--darker-text);
 }
 p {
   line-height: 1.5rem;

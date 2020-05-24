@@ -17,6 +17,12 @@ const Hero = () => {
 const HeroSection = styled(Section)`
   display: flex;
   align-items: center;
+  p {
+    line-height: 2rem;
+    font-size: 1.3rem;
+    font-weight: 200;
+    color: var(--grey-blue);
+  }
 `;
 
 export default Hero;

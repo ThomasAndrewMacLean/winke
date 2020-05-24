@@ -40,7 +40,7 @@ const NavLink = styled.li`
   font-size: 14px;
   cursor: pointer;
   transition: padding-left 500ms ease-in-out;
-  padding-left: ${(props) => props.activeLink && '100%'};
+  padding-left: ${(props) => props.activeLink && '90%'};
   color: ${(props) => (props.activeLink ? '#444' : 'var(--light)')};
   a {
     text-decoration: none;
