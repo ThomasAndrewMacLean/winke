@@ -1,13 +1,22 @@
 import React from 'react';
 import { Section } from '../styles';
 import { Image, T } from './index';
+import styled from 'styled-components';
 
-const HeroSection = () => {
+const Hero = () => {
   return (
-    <Section>
+    <HeroSection>
       <Image imageId="2"></Image>
-    </Section>
+      <h2>
+        <T translationKey="heroText"></T>
+      </h2>
+    </HeroSection>
   );
 };
 
-export default HeroSection;
+const HeroSection = styled(Section)`
+  display: flex;
+  align-items: center;
+`;
+
+export default Hero;
