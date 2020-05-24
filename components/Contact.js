@@ -4,7 +4,6 @@ import { T } from './index';
 import styled from 'styled-components';
 
 const ContactSection = () => {
-
   return (
     <Section>
       <h2>
@@ -42,8 +41,6 @@ const ContactSection = () => {
 
         <input type="submit" value="Send" />
       </Form>
-
-      
     </Section>
   );
 };
@@ -76,7 +73,7 @@ const Form = styled.form`
     background: #333;
     color: #fff;
     padding: 0.5rem 2rem;
-    border: 2px solid var(--light);
+    border: none; //2px solid var(--light);
   }
 `;
 

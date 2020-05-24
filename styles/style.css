@@ -40,6 +40,9 @@ ul {
   padding-bottom: 1rem;
 }
 
+a {
+  color: var(--darker-text);
+}
 li {
   padding-bottom: 0.5rem;
 }
