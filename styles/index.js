@@ -2,4 +2,10 @@ import styled from 'styled-components';
 
 export const Section = styled.section`
   min-height: 100vh;
+  width: 90%;
+  max-width: 800px;
+  padding-top: 8rem;
+  margin: 0 auto;
+  outline: none;
+  scroll-snap-align: start;
 `;

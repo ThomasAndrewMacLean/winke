@@ -16,5 +16,8 @@ add allUsers to cloud function
 
 !!!"export": "next export && mv .next/sw.js out/sw.js && mv .next/workbox\* out"
 
-
+trigger build:
 https://docs.netlify.com/configure-builds/build-hooks/#parameters
+
+smooth scroll safari:
+https://dev.to/jonaskuske/comment/8n5j

@@ -10,8 +10,10 @@ const Layout = ({ children }) => {
       <header>
         <Menu></Menu>
 
-        <Title>
-          <T translationKey="title" />
+        <Title href="#home">
+          <h1>
+            <T translationKey="title" />
+          </h1>
         </Title>
       </header>
       <Main>{children}</Main>
@@ -20,17 +22,25 @@ const Layout = ({ children }) => {
 };
 
 const Main = styled.main`
+  scroll-snap-type: y proximity;
+  overflow: scroll;
+  height: 100vh;
   width: ${(props) => `calc(100vw -  ${props.theme.menuWidth})`};
   margin-left: ${(props) => props.theme.menuWidth};
   scroll-behavior: smooth;
   /* padding: 5rem 8rem; */
 `;
 
-const Title = styled.h1`
+const Title = styled.a`
+  text-decoration: none;
+  color: inherit;
   position: fixed;
   right: 0;
   top: 0;
-  font-weight: 100;
+  padding: 2rem 4rem;
+  h1 {
+    font-weight: 100;
+  }
 `;
 const Wrapper = styled.div`
   display: flex;

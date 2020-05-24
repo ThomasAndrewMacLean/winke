@@ -1,22 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
 import { T } from './index';
 import { useStore } from '../store';
 
 const Menu = () => {
-  const { currentNavLink, setCurrentNavLink } = useStore();
+  const { currentNavLink } = useStore();
   const links = ['about', 'work', 'expo', 'contact'];
   return (
     <Nav>
       <ul>
         {links.map((link, index) => {
           return (
-            <NavLink
-              key={link + index}
-              onClick={() => setCurrentNavLink(link)}
-              activeLink={currentNavLink === link}
-            >
+            <NavLink key={link + index} activeLink={currentNavLink === link}>
               <a href={'#' + link}>
                 <T translationKey={link + 'Title'}></T>
               </a>
