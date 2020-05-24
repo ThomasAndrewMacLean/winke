@@ -17,6 +17,7 @@ const Hero = () => {
 const HeroSection = styled(Section)`
   display: flex;
   align-items: center;
+  padding-top: 0;
   p {
     line-height: 2rem;
     font-size: 1.3rem;

@@ -9,7 +9,7 @@ const ExpoSection = () => {
         <T translationKey="expoTitle" />
       </h2>
 
-      <T translationKey="aboutText" />
+      <T translationKey="expoText" />
     </Section>
   );
 };

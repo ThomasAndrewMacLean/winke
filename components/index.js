@@ -8,3 +8,4 @@ export { default as Work } from './Work';
 export { default as Expo } from './Expo';
 export { default as Contact } from './Contact';
 export { default as Observer } from './Observer';
+export { default as Caroussel } from './Caroussel';

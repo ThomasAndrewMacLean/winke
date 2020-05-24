@@ -8,6 +8,7 @@
   --grey-blue: #454754;
   --text: #666;
   --light: #999;
+  --white: #fff;
 }
 * {
   margin: 0;
@@ -16,9 +17,10 @@
   box-sizing: border-box;
   touch-action: manipulation;
 }
-/* ::selection {
-  background: var(--background-light); 
-} */
+::selection {
+  background: var(--light);
+  color: var(--white);
+}
 html,
 body {
   font-family: Helvetica Neue, Helvetica, Arial, Verdana, Tahoma, sans-serif;
@@ -27,11 +29,11 @@ body {
   color: var(--text);
   --scroll-behavior: smooth;
   scroll-behavior: smooth;
-  background: linear-gradient(
+  /* background: linear-gradient(
     0deg,
     rgba(210, 210, 210, 1) 0%,
     rgba(255, 255, 255, 1) 100%
-  );
+  ); */
 }
 ul {
   margin-left: 2rem;

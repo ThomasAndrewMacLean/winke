@@ -1,6 +1,6 @@
 import React from 'react';
 import { Section } from '../styles';
-import { T } from './index';
+import { T, Caroussel } from './index';
 
 const WorkSection = () => {
   return (
@@ -9,7 +9,7 @@ const WorkSection = () => {
         <T translationKey="workTitle" />
       </h2>
 
-      <T translationKey="aboutText" />
+      <Caroussel />
     </Section>
   );
 };

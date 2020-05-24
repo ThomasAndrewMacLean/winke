@@ -23,12 +23,11 @@ const Layout = ({ children }) => {
 
 const Main = styled.main`
   scroll-snap-type: y proximity;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   height: 100vh;
   width: 100vw;
-  padding-left: ${(props) => props.theme.menuWidth};
   scroll-behavior: smooth;
-  /* padding: 5rem 8rem; */
 `;
 
 const Title = styled.a`

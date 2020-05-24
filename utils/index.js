@@ -11,6 +11,12 @@ export const getImageUrl = (context, id, full) => {
     : context.find((p) => p.id === id).pic[0].thumbnails.large.url;
 };
 
+export const getImageName = (context, id) => {
+  return (
+    context.find((p) => p.id === id) && context.find((p) => p.id === id).name
+  );
+};
+
 export const getDataFromAirtable = async () => {
   const url =
     'https://europe-west1-thomasmaclean.cloudfunctions.net/getDataAirtable';
