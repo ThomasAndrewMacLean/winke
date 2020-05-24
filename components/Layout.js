@@ -9,6 +9,7 @@ const Layout = ({ children }) => {
     <Wrapper>
       <header>
         <Menu></Menu>
+
         <Title>
           <T translationKey="title" />
         </Title>
@@ -21,16 +22,15 @@ const Layout = ({ children }) => {
 const Main = styled.main`
   width: ${(props) => `calc(100vw -  ${props.theme.menuWidth})`};
   margin-left: ${(props) => props.theme.menuWidth};
-  padding: 5rem 8rem;
+  scroll-behavior: smooth;
+  /* padding: 5rem 8rem; */
 `;
 
-const Title = styled.div`
+const Title = styled.h1`
   position: fixed;
   right: 0;
   top: 0;
-  h1 {
-    font-weight: 100;
-  }
+  font-weight: 100;
 `;
 const Wrapper = styled.div`
   display: flex;

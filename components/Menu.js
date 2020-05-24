@@ -1,46 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+import { T } from './index';
 import { useStore } from '../store';
 
 const Menu = () => {
   const { currentNavLink, setCurrentNavLink } = useStore();
-
+  const links = ['about', 'work', 'expo', 'contact'];
   return (
     <Nav>
       <ul>
-        <NavLink
-          onClick={() => setCurrentNavLink('/about')}
-          activeLink={currentNavLink === '/about'}
-        >
-          <Link href="/about">
-            <a>About</a>
-          </Link>
-        </NavLink>
-        <NavLink
-          onClick={() => setCurrentNavLink('/work')}
-          activeLink={currentNavLink === '/work'}
-        >
-          <Link href="/work">
-            <a>Work</a>
-          </Link>
-        </NavLink>
-        <NavLink
-          onClick={() => setCurrentNavLink('/expo')}
-          activeLink={currentNavLink === '/expo'}
-        >
-          <Link href="/expo">
-            <a>Expo</a>
-          </Link>
-        </NavLink>
-        <NavLink
-          onClick={() => setCurrentNavLink('/contact')}
-          activeLink={currentNavLink === '/contact'}
-        >
-          <Link href="/contact">
-            <a>Contact</a>
-          </Link>
-        </NavLink>
+        {links.map((link, index) => {
+          return (
+            <NavLink
+              key={link + index}
+              onClick={() => setCurrentNavLink(link)}
+              activeLink={currentNavLink === link}
+            >
+              <a href={'#' + link}>
+                <T translationKey={link + 'Title'}></T>
+              </a>
+            </NavLink>
+          );
+        })}
       </ul>
     </Nav>
   );

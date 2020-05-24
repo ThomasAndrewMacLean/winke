@@ -4,7 +4,8 @@
   --background: #fff;
   --background-dark: #333333;
   --border: 3px solid black;
-
+  --darker-text: #333;
+  --text: #666;
   --light: #999;
 }
 * {
@@ -14,14 +15,17 @@
   box-sizing: border-box;
   touch-action: manipulation;
 }
-::selection {
-  background: var(--background-light); /* WebKit/Blink Browsers */
-}
+/* ::selection {
+  background: var(--background-light); 
+} */
 html,
 body {
   font-family: Helvetica Neue, Helvetica, Arial, Verdana, Tahoma, sans-serif;
   width: 100%;
   overflow-x: hidden;
+  color: var(--text);
+  --scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 ul {
   margin-left: 2rem;
@@ -37,4 +41,16 @@ blockquote {
 }
 blockquote:last-of-type {
   padding-bottom: 2rem;
+}
+
+.showKeys,
+.showKeys * {
+  background-color: lightpink !important;
+}
+h2 {
+  color: var(--darker-text);
+  margin-bottom: 2rem;
+}
+p {
+  line-height: 1.5rem;
 }

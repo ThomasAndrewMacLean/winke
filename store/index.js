@@ -1,6 +1,7 @@
 import create from 'zustand';
+import { mountStoreDevtool } from 'simple-zustand-devtools';
 
-export const [useStore] = create((set, get) => ({
+export const [useStore, store] = create((set, get) => ({
   count: 0,
   countPlusOne: () => {
     const { count } = get();
@@ -11,3 +12,7 @@ export const [useStore] = create((set, get) => ({
     return set(() => ({ currentNavLink: newNavLink }));
   },
 }));
+
+if (process.browser) {
+  mountStoreDevtool('Store', store);
+}

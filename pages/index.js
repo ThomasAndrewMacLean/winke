@@ -1,22 +1,30 @@
 import React from 'react';
 import Head from 'next/head';
-import { Layout } from '../components';
+import { Layout, Hero, About, Expo, Contact, Work } from '../components';
 import { getDataFromAirtable } from '../utils';
-import { TranslationContext } from '../utils/contexts';
+import { TranslationContext, PictureContext } from '../utils/contexts';
+import PropTypes from 'prop-types';
 
-const IndexPage = ({ translations }) => {
+const IndexPage = ({ translations, pics }) => {
   return (
-    <TranslationContext.Provider value={translations}>
-      <Layout>
-        <Head>
-          <title>Winke</title>
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-          />
-        </Head>
-      </Layout>
-    </TranslationContext.Provider>
+    <PictureContext.Provider value={pics}>
+      <TranslationContext.Provider value={translations}>
+        <Layout>
+          <Head>
+            <title>Winke</title>
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+            />
+          </Head>
+          <Hero></Hero>
+          <About></About>
+          <Work></Work>
+          <Expo></Expo>
+          <Contact></Contact>
+        </Layout>
+      </TranslationContext.Provider>
+    </PictureContext.Provider>
   );
 };
 
@@ -25,4 +33,8 @@ export const getStaticProps = async () => {
   return { props: data };
 };
 
+IndexPage.propTypes = {
+  translations: PropTypes.array.isRequired,
+  pics: PropTypes.array.isRequired,
+};
 export default IndexPage;

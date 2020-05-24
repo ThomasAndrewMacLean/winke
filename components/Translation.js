@@ -16,7 +16,13 @@ const Translation = ({ translationKey }) => {
   const translation = translationsFromContext.find(
     (t) => t.id === translationKey
   );
-  return (
+  return translation['NL zonder opmaak'] ? (
+    translation && !showKeys ? (
+      <>{translation['NL zonder opmaak']}</>
+    ) : (
+      <span className="showKeys">{translationKey}</span>
+    )
+  ) : (
     <span
       className={showKeys ? 'showKeys' : ''}
       dangerouslySetInnerHTML={{
