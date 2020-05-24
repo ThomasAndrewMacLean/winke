@@ -7,7 +7,7 @@ import styled from 'styled-components';
 const Layout = ({ children }) => {
   return (
     <Wrapper>
-      <header>
+      <Header>
         <Menu></Menu>
 
         <Title href="#home">
@@ -15,11 +15,15 @@ const Layout = ({ children }) => {
             <T translationKey="title" />
           </h1>
         </Title>
-      </header>
+      </Header>
       <Main>{children}</Main>
     </Wrapper>
   );
 };
+
+const Header = styled.header`
+  z-index: 1;
+`;
 
 const Main = styled.main`
   scroll-snap-type: y proximity;
