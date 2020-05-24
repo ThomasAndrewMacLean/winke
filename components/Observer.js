@@ -9,7 +9,6 @@ const Observer = ({ id, children }) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          console.log(id);
           setCurrentNavLink(id);
         }
       },

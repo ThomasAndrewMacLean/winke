@@ -2,10 +2,9 @@ import create from 'zustand';
 import { mountStoreDevtool } from 'simple-zustand-devtools';
 
 export const [useStore, store] = create((set, get) => ({
-  count: 0,
-  countPlusOne: () => {
-    const { count } = get();
-    return set(() => ({ count: count + 1 }));
+  areAtTop: true,
+  setAreAtTop: (value) => {
+    return set(() => ({ areAtTop: value }));
   },
   currentNavLink: '/',
   setCurrentNavLink: (newNavLink) => {

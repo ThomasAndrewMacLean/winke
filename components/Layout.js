@@ -1,10 +1,31 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { Menu, T, Footer } from './index';
 import styled from 'styled-components';
+import { useStore } from '../store';
 
 const Layout = ({ children }) => {
+  const ref = useRef();
+  const { setAreAtTop } = useStore();
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAreAtTop(true);
+        }
+        if (!entry.isIntersecting) {
+          setAreAtTop(false);
+        }
+      },
+      {
+        threshold: 1,
+      }
+    );
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+  }, [ref]);
   return (
     <Wrapper>
       <Header>
@@ -14,11 +35,15 @@ const Layout = ({ children }) => {
           <T translationKey="title" />
         </Title>
       </Header>
-      <Main>{children}</Main>
+      <Main>
+        <Top ref={ref}></Top>
+        {children}
+      </Main>
       <Footer></Footer>
     </Wrapper>
   );
 };
+const Top = styled.div``;
 
 const Header = styled.header`
   z-index: 1;

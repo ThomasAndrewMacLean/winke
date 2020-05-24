@@ -7,9 +7,9 @@ const Hero = () => {
   return (
     <HeroSection>
       <Image imageId="2"></Image>
-      <h2>
+      {/* <h2>
         <T translationKey="heroText"></T>
-      </h2>
+      </h2> */}
     </HeroSection>
   );
 };
