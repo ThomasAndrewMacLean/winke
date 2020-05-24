@@ -19,18 +19,21 @@ const Caroussel = () => {
 };
 
 const Scroll = styled.ul`
+  scroll-snap-type: x mandatory;
   display: flex;
   width: calc(50vw + 300px + 100px);
   height: calc(100vh - 14rem);
   overflow-x: scroll;
   margin-left: -100px;
-  padding-left: 100px;
+  /* padding-left: 100px; */
   list-style: none;
 `;
 const ScrollItem = styled.li`
   flex: none;
   div {
     height: 100%;
+    scroll-snap-align: start;
+    width: calc(50vw + 300px + 100px);
   }
   img {
     height: 100%;

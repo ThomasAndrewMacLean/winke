@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Menu, T } from './index';
+import { Menu, T, Footer } from './index';
 import styled from 'styled-components';
 
 const Layout = ({ children }) => {
@@ -17,6 +17,7 @@ const Layout = ({ children }) => {
         </Title>
       </Header>
       <Main>{children}</Main>
+      <Footer></Footer>
     </Wrapper>
   );
 };
