@@ -15,3 +15,6 @@ add email to google sheet share
 add allUsers to cloud function
 
 !!!"export": "next export && mv .next/sw.js out/sw.js && mv .next/workbox\* out"
+
+
+https://docs.netlify.com/configure-builds/build-hooks/#parameters

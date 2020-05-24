@@ -13,10 +13,17 @@ const Layout = ({ children }) => {
           <T translationKey="title" />
         </Title>
       </header>
-      <main>{children}</main>
+      <Main>{children}</Main>
     </Wrapper>
   );
 };
+
+const Main = styled.main`
+  // background: lightcoral;
+  width: ${(props) => `calc(100vw -  ${props.theme.menuWidth})`};
+  margin-left: ${(props) => props.theme.menuWidth};
+  padding: 5rem 8rem;
+`;
 
 const Title = styled.div`
   position: fixed;

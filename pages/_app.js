@@ -1,12 +1,16 @@
-import React  from 'react';
+import React from 'react';
 import '../styles/style.css';
+import { ThemeProvider } from 'styled-components';
 
+import { theme } from '../styles/theme';
 
 function MyApp({ Component, pageProps }) {
   return (
     // <PictureContext.Provider value={pics}>
     //   <TranslationContext.Provider value={translations || []}>
-    <Component {...pageProps} />
+    <ThemeProvider theme={theme}>
+      <Component {...pageProps} />
+    </ThemeProvider>
     //   </TranslationContext.Provider>{' '}
     // </PictureContext.Provider>
   );

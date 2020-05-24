@@ -47,9 +47,11 @@ const Menu = () => {
 };
 
 const Nav = styled.nav`
-  width: 20vw;
+  width: ${(props) => props.theme.menuWidth};
   height: 100vh;
-  background: whitesmoke;
+  padding-top: 30vh;
+  position: fixed;
+  background: ${(props) => props.theme.menuColour};
   ul {
     list-style: none;
   }
