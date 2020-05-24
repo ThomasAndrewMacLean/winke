@@ -51,7 +51,7 @@ const Nav = styled.nav`
   height: 100vh;
   padding-top: 30vh;
   position: fixed;
-  background: ${(props) => props.theme.menuColour};
+ // background: ${(props) => props.theme.menuColour};
   ul {
     list-style: none;
   }

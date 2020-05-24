@@ -19,7 +19,6 @@ const Layout = ({ children }) => {
 };
 
 const Main = styled.main`
-  // background: lightcoral;
   width: ${(props) => `calc(100vw -  ${props.theme.menuWidth})`};
   margin-left: ${(props) => props.theme.menuWidth};
   padding: 5rem 8rem;

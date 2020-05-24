@@ -27,6 +27,7 @@
     "babel-plugin-styled-components": "^1.10.7",
     "dayjs": "^1.8.24",
     "dotenv": "^8.2.0",
+    "isomorphic-fetch": "^2.2.1",
     "marked": "^0.8.2",
     "next": "^9.4.2",
     "next-pwa": "^2.3.3",
