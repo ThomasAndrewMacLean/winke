@@ -5,6 +5,7 @@ import { useStore } from '../store';
 
 const Menu = () => {
   const { currentNavLink } = useStore();
+
   const links = ['about', 'work', 'expo', 'contact'];
   return (
     <Nav>
@@ -24,11 +25,11 @@ const Menu = () => {
 };
 
 const Nav = styled.nav`
+  pointer-events: none;
+  text-transform: lowercase;
   width: ${(props) => props.theme.menuWidth};
-  height: 100vh;
-  padding-top: 30vh;
+  margin-top: 30vh;
   position: fixed;
- // background: ${(props) => props.theme.menuColour};
   ul {
     list-style: none;
   }
@@ -43,6 +44,8 @@ const NavLink = styled.li`
   color: ${(props) => (props.activeLink ? '#444' : 'var(--light)')};
   a {
     text-decoration: none;
+    pointer-events: all;
+
     color: ${(props) => (props.activeLink ? '#444' : 'var(--light)')};
     &:hover {
       color: ${(props) => (props.activeLink ? '#444' : ' #666')};

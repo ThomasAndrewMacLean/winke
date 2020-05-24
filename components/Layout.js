@@ -25,8 +25,8 @@ const Main = styled.main`
   scroll-snap-type: y proximity;
   overflow: scroll;
   height: 100vh;
-  width: ${(props) => `calc(100vw -  ${props.theme.menuWidth})`};
-  margin-left: ${(props) => props.theme.menuWidth};
+  width: 100vw;
+  padding-left: ${(props) => props.theme.menuWidth};
   scroll-behavior: smooth;
   /* padding: 5rem 8rem; */
 `;
