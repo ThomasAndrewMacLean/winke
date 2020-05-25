@@ -39,11 +39,11 @@ const SiteFooter = styled.footer`
   padding: 2rem 4rem;
   address {
     text-align: right;
-    pointer-events: inherit;
+    pointer-events: all;
   }
   .copyright {
     font-size: 10px;
-    pointer-events: inherit;
+    pointer-events: all;
   }
 
   @media (max-width: ${(props) => props.theme.medium}) {
