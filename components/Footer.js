@@ -26,6 +26,7 @@ const Footer = () => {
 };
 
 const SiteFooter = styled.footer`
+  pointer-events: none;
   position: absolute;
   display: flex;
   justify-content: space-between;
@@ -38,9 +39,11 @@ const SiteFooter = styled.footer`
   padding: 2rem 4rem;
   address {
     text-align: right;
+    pointer-events: inherit;
   }
   .copyright {
     font-size: 10px;
+    pointer-events: inherit;
   }
 
   @media (max-width: ${(props) => props.theme.medium}) {

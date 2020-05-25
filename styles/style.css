@@ -29,6 +29,7 @@ body {
   color: var(--text);
   --scroll-behavior: smooth;
   scroll-behavior: smooth;
+  font-size: 14px;
   /* background: linear-gradient(
     0deg,
     rgba(210, 210, 210, 1) 0%,
