@@ -14,8 +14,8 @@ const ExpoSection = () => {
 
       <Iframe
         style={{ marginTop: '3rem' }}
-        width="560"
-        height="315"
+        width="600"
+        height="375"
         src="https://www.youtube.com/embed/4m4Aq7_DXrY?controls=0"
         frameBorder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

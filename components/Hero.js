@@ -55,7 +55,10 @@ const HeroSection = styled(Section)`
       address{
         position: absolute;
         display: block;
-        bottom: 2rem;
+        bottom: 4rem;
+        a{
+          font-weight: 400;
+        }
         a,p{
           line-height: 1.5rem;
         font-size: 14px !important;

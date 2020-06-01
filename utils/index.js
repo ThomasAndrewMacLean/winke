@@ -7,13 +7,13 @@ export const prefix = isProduction ? '' : '';
 
 export const getImageUrl = (context, id, full) => {
   return full
-    ? context.find((p) => p.id === id).pic[0].url
-    : context.find((p) => p.id === id).pic[0].thumbnails.large.url;
+    ? context.find((p) => p.id == id).pic[0].url
+    : context.find((p) => p.id == id).pic[0].thumbnails.large.url;
 };
 
 export const getImageName = (context, id) => {
   return (
-    context.find((p) => p.id === id) && context.find((p) => p.id === id).name
+    context.find((p) => p.id == id) && context.find((p) => p.id == id).name
   );
 };
 
