@@ -44,11 +44,15 @@ const SiteFooter = styled.footer`
   .copyright {
     font-size: 10px;
     pointer-events: all;
+    line-height: 1.5rem;
   }
 
   @media (max-width: ${(props) => props.theme.medium}) {
     /* transform: translateX(-100%); */
+    width: 80%;
+    padding: 2rem 0;
     position: inherit;
+    margin: auto;
   }
 `;
 export default Footer;

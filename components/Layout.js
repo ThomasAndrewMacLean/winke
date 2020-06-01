@@ -30,10 +30,12 @@ const Layout = ({ children }) => {
     <Wrapper>
       <Header>
         <Menu></Menu>
-
         <Title areAtTop={areAtTop} href="#home">
           <T translationKey="title" />
         </Title>
+        <TitleMobile areAtTop={areAtTop}>
+          <T translationKey="title" />
+        </TitleMobile>
       </Header>
       <Main>
         <Top ref={ref}></Top>
@@ -61,6 +63,28 @@ const Main = styled.main`
   }
 `;
 
+const TitleMobile = styled.div`
+  color: var(--grey-blue);
+  h1 {
+    font-weight: 100;
+  }
+  right: 0;
+  top: 0;
+  position: fixed;
+  transform-origin: right bottom;
+  padding: 0;
+  margin-top: -2rem;
+  transition: all 300ms ease;
+  transform: rotate(-90deg) scale(0.5) translateY(0);
+  opacity: 0;
+  @media (max-width: ${(props) => props.theme.medium}) {
+    opacity: 1;
+    transform: ${(props) =>
+      props.areAtTop
+        ? 'rotate(-90deg) scale(0.5) translateY(100%)'
+        : 'rotate(-90deg) scale(0.5) translateY(0)'};
+  }
+`;
 const Title = styled.a`
   text-decoration: none;
   color: var(--grey-blue);
@@ -71,10 +95,7 @@ const Title = styled.a`
   transition: all 300ms ease;
   transform-origin: right bottom;
   @media (max-width: ${(props) => props.theme.medium}) {
-    transform: ${(props) =>
-      props.areAtTop ? '' : 'rotate(-90deg) scale(0.5)'};
-    padding: ${(props) => (props.areAtTop ? '2rem 4rem' : '0')};
-    margin-top: ${(props) => (props.areAtTop ? '' : '-2rem')};
+    opacity: ${(props) => (props.areAtTop ? '1' : '0')};
   }
   h1 {
     font-weight: 100;

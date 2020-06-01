@@ -20,7 +20,7 @@ const Image = ({ imageId, showName }) => {
   );
 };
 
-const ImageWrap = styled.div`
+export const ImageWrap = styled.div`
   position: relative;
   cursor: ${(props) => props.showName && 'help'};
 `;

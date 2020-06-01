@@ -1,10 +1,56 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Image } from './index';
 import styled from 'styled-components';
 
 const Caroussel = () => {
+  // TODO get live amount of images from airtable
   const imagesArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const ref = useRef();
+  const firstRef = useRef();
+  const lastRef = useRef();
+
+  const [showBackArrow, setShowBackArrow] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowBackArrow(false);
+        } else {
+          setShowBackArrow(true);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
+      }
+    );
+    if (firstRef.current) {
+      observer.observe(firstRef.current);
+    }
+  }, [firstRef]);
+
+  const [showNextArrow, setShowNextArrow] = useState(true);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowNextArrow(false);
+        } else {
+          setShowNextArrow(true);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
+      }
+    );
+    if (lastRef.current) {
+      observer.observe(lastRef.current);
+    }
+  }, [lastRef]);
+
   const scrollNext = () => {
     ref.current.scrollBy({
       top: 0,
@@ -21,10 +67,10 @@ const Caroussel = () => {
     });
   };
 
-  // TODO: add a dummy first and last element to Scroll and add observer to check if it is in view and hide arrows accordingly
   return (
     <ScrollWrapper>
       <Scroll ref={ref}>
+        <div ref={firstRef}></div>
         {imagesArr.map((a) => {
           return (
             <ScrollItem key={a}>
@@ -32,18 +78,21 @@ const Caroussel = () => {
             </ScrollItem>
           );
         })}
+        <div ref={lastRef}></div>
       </Scroll>
-      <PreviousButton onClick={scrollPrevious}>←</PreviousButton>
-      <NextButton onClick={scrollNext}>→</NextButton>
+      {showBackArrow && (
+        <PreviousButton onClick={scrollPrevious}>←</PreviousButton>
+      )}
+      {showNextArrow && <NextButton onClick={scrollNext}>→</NextButton>}
     </ScrollWrapper>
   );
 };
 
 const ScrollWrapper = styled.div`
-  margin-left: -100px;
-  width: calc(50vw + 300px + 100px);
+  margin-left: calc(-50vw + 300px + 175px);
+  width: calc(100vw - 175px);
   position: relative;
-
+  height: calc(100vh - 14rem);
   @media (max-width: ${(props) => props.theme.medium}) {
     margin-left: -10vw;
     width: 100vw;
@@ -56,7 +105,7 @@ const NextButton = styled.button`
   cursor: pointer;
   color: var(--light);
   font-weight: 100;
-  right: 4rem;
+  right: 0;
   padding: 20px;
   top: 50%;
   outline: none;
@@ -94,10 +143,12 @@ const PreviousButton = styled.button`
 const Scroll = styled.ul`
   scroll-snap-type: x mandatory;
   display: flex;
-  width: calc(50vw + 300px + 100px);
-  height: calc(100vh - 14rem);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
   overflow-x: scroll;
-  margin-left: -100px;
+
   /* padding-left: 100px; */
   list-style: none;
   &::-webkit-scrollbar {
@@ -113,11 +164,12 @@ const Scroll = styled.ul`
   }
 `;
 const ScrollItem = styled.li`
+  padding: 0;
   flex: none;
   div {
     height: 100%;
     scroll-snap-align: start;
-    width: calc(50vw + 300px + 100px);
+    width: calc(100vw - 175px);
 
     @media (max-width: ${(props) => props.theme.medium}) {
       margin-left: 0;
