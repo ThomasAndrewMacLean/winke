@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { Menu, T, Footer } from './index';
+import { Menu, T, Footer, MobileMenu } from './index';
 import styled from 'styled-components';
 import { useStore } from '../store';
 
@@ -29,6 +29,7 @@ const Layout = ({ children }) => {
   return (
     <Wrapper>
       <Header>
+        <MobileMenu />
         <Menu></Menu>
         <Title areAtTop={areAtTop} href="#home">
           <T translationKey="title" />
@@ -96,6 +97,8 @@ const Title = styled.a`
   transform-origin: right bottom;
   @media (max-width: ${(props) => props.theme.medium}) {
     opacity: ${(props) => (props.areAtTop ? '1' : '0')};
+
+    pointer-events: none;
   }
   h1 {
     font-weight: 100;

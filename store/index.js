@@ -10,6 +10,11 @@ export const [useStore, store] = create((set, get) => ({
   setCurrentNavLink: (newNavLink) => {
     return set(() => ({ currentNavLink: newNavLink }));
   },
+  mobileNavIsOpen: false,
+  setMobileNav: (open) => {
+   
+    return set(() => ({ mobileNavIsOpen: open }));
+  },
 }));
 
 if (process.browser) {

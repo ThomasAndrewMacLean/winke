@@ -2,11 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { T } from './index';
 import { useStore } from '../store';
-
+import { links } from '../utils/constants';
 const Menu = () => {
   const { currentNavLink } = useStore();
 
-  const links = ['about', 'work', 'expo', 'contact'];
   return (
     <Nav>
       <ul>
