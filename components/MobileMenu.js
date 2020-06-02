@@ -71,10 +71,16 @@ const Nav = styled.nav`
     background: none;
     border: none;
     z-index: 1;
+    color: var(--grey-blue);
+    padding: 2rem;
     position: relative;
+    outline: none;
   }
   position: absolute;
-  padding: 2rem 4rem;
+
+  margin-left: -2rem;
+  box-sizing: border-box;
+  left: 10vw;
 
   ul {
     margin-left: 0;
@@ -83,12 +89,18 @@ const Nav = styled.nav`
     opacity: ${(props) => (props.showMenu ? '1' : '0')};
     background: white;
     width: 100vw;
-    position: absolute;
+    position: fixed;
     left: 0;
-    padding: 4rem;
+    padding: 7rem;
+    list-style: none;
     top: ${(props) => (props.showMenu ? '0' : 'calc(-100% - 10rem)')};
   }
-
+  li {
+    padding: 1rem 0;
+    a {
+      text-decoration: none;
+    }
+  }
   @media (min-width: ${(props) => props.theme.medium}) {
     display: none;
   }
