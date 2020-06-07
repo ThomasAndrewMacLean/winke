@@ -9,6 +9,9 @@ const Layout = ({ children }) => {
   const ref = useRef();
   const { setAreAtTop, areAtTop } = useStore();
   useEffect(() => {
+    if (!('IntersectionObserver' in window)) {
+      return;
+    }
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

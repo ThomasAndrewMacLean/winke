@@ -11,6 +11,11 @@ const Caroussel = () => {
 
   const [showBackArrow, setShowBackArrow] = useState(false);
   useEffect(() => {
+    if (!('IntersectionObserver' in window)) {
+      // no intersection obsrever, always show arrows
+      setShowBackArrow(true);
+      return;
+    }
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -32,6 +37,11 @@ const Caroussel = () => {
 
   const [showNextArrow, setShowNextArrow] = useState(true);
   useEffect(() => {
+    if (!('IntersectionObserver' in window)) {
+      // no intersection obsrever, always show arrows
+      setShowNextArrow(true);
+      return;
+    }
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

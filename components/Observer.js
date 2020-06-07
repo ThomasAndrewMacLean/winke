@@ -6,6 +6,9 @@ const Observer = ({ id, children }) => {
   const { setCurrentNavLink } = useStore();
 
   useEffect(() => {
+    if (!('IntersectionObserver' in window)) {
+      return;
+    }
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
