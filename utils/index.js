@@ -11,6 +11,12 @@ export const getImageUrl = (context, id, full) => {
     : context.find((p) => p.id == id).pic[0].thumbnails.large.url;
 };
 
+export const getBomen = (context) => {
+  return context
+    .find((p) => p.id == 'bomen')
+    .pic.map((x) => x.thumbnails.large.url);
+};
+
 export const getImageName = (context, id) => {
   return (
     context.find((p) => p.id == id) && context.find((p) => p.id == id).name

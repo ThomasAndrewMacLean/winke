@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/style.css';
 import { ThemeProvider } from 'styled-components';
 
 import { theme } from '../styles/theme';
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    if (document.location.search.includes('barlow')) {
+      document.body.style.fontFamily = `Barlow, sans-serif`;
+    }
+    if (document.location.search.includes('thasadith')) {
+      document.body.style.fontFamily = `'Thasadith', sans-serif`;
+    }
+
+    if (document.location.search.includes('red')) {
+      document.body.style.fontFamily = `'Red Hat Display', sans-serif`;
+    }
+  }, []);
   return (
     // <PictureContext.Provider value={pics}>
     //   <TranslationContext.Provider value={translations || []}>

@@ -49,7 +49,7 @@ const NavLink = styled.li`
   a {
     text-decoration: none;
     pointer-events: all;
-
+    white-space: pre;
     color: ${(props) => (props.activeLink ? '#444' : 'var(--light)')};
     &:hover {
       color: ${(props) => (props.activeLink ? '#444' : ' #666')};

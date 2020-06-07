@@ -26,7 +26,6 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           <link rel="manifest" href={`${prefix}/manifest.json`} />
-
           {/* <meta name="application-name" content="Winke Besard" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta
@@ -51,7 +50,6 @@ export default class MyDocument extends Document {
   name="viewport"
   content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
 /> */}
-
           {/* <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -79,7 +77,6 @@ export default class MyDocument extends Document {
   rel="stylesheet"
   href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
 /> */}
-
           {/* <meta name="twitter:card" content="summary" />
           <meta name="twitter:url" content="https://winke.be" />
           <meta name="twitter:title" content="Winke Besard" />
@@ -101,7 +98,6 @@ export default class MyDocument extends Document {
           />
           {/* Step 5: Output the styles in the head  */}
           {this.props.styleTags}
-
           <script
             dangerouslySetInnerHTML={{
               __html: `  window.addEventListener('beforeinstallprompt', function(e) {
@@ -112,6 +108,10 @@ export default class MyDocument extends Document {
           ></script>
           <script src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js"></script>
           <script src="https://unpkg.com/smoothscroll-anchor-polyfill"></script>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;400&family=Red+Hat+Display:wght@400;700&family=Thasadith:wght@400;700&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <Main />

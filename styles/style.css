@@ -23,18 +23,14 @@
 }
 html,
 body {
-  font-family: Helvetica Neue, Helvetica, Arial, Verdana, Tahoma, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+
   width: 100%;
   overflow-x: hidden;
   color: var(--text);
   --scroll-behavior: smooth;
   scroll-behavior: smooth;
   font-size: 14px;
-  /* background: linear-gradient(
-    0deg,
-    rgba(210, 210, 210, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  ); */
 }
 ul {
   margin-left: 2rem;
@@ -69,4 +65,10 @@ b {
 }
 p {
   line-height: 1.5rem;
+}
+
+input,
+textarea {
+  -webkit-appearance: none;
+  border-radius: 0;
 }
