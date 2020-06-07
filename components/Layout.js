@@ -57,6 +57,7 @@ const Main = styled.main`
   overflow-y: scroll;
   overflow-x: hidden;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   width: 100vw;
   scroll-behavior: smooth;
   @media (max-width: ${(props) => props.theme.medium}) {

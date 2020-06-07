@@ -6,6 +6,9 @@ import { theme } from '../styles/theme';
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    
     if (document.location.search.includes('barlow')) {
       document.body.style.fontFamily = `Barlow, sans-serif`;
     }
