@@ -7,7 +7,7 @@ const ExpoSection = () => {
   return (
     <Section>
       <h2>
-        <T translationKey="expoTitle" />
+        <T translationKey="showsTitle" />
       </h2>
 
       <T translationKey="expoText" />

@@ -15,7 +15,15 @@ const Footer = () => {
       </span>
 
       <address>
-        <T translationKey="address" />
+        {/* <T translationKey="address" /> */}
+        <div className="socialIcons">
+          <a>
+            <img src="icon-facebook.svg"></img>
+          </a>
+          <a>
+            <img src="icon-instagram.svg"></img>
+          </a>
+        </div>
         <a href={'tel:' + telephoneNumber}>
           <T translationKey="telephone" />
         </a>
@@ -45,6 +53,17 @@ const SiteFooter = styled.footer`
     font-size: 10px;
     pointer-events: all;
     line-height: 1.5rem;
+  }
+
+  .socialIcons {
+    img {
+      height: 25px;
+    }
+    a {
+      padding-left: 1rem;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
   }
 
   @media (max-width: ${(props) => props.theme.medium}) {

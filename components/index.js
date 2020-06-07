@@ -12,3 +12,4 @@ export { default as Observer } from './Observer';
 export { default as Caroussel } from './Caroussel';
 export { default as Footer } from './Footer';
 export { default as Plant } from './Plant';
+export { default as Tabs } from './Tabs';

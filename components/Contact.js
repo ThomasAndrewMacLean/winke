@@ -11,6 +11,14 @@ const ContactSection = () => {
       </h2>
       <T translationKey="contactText" />
 
+      <Address>
+        <T translationKey="address" />
+
+        <T translationKey="telephone" />
+
+        <T translationKey="email" />
+      </Address>
+
       <Form>
         <div className="input-wrap">
           <label htmlFor="name">
@@ -45,6 +53,9 @@ const ContactSection = () => {
   );
 };
 
+const Address = styled.address`
+  padding-top: 2rem;
+`;
 const Form = styled.form`
   margin-top: 3rem;
   .input-wrap {
