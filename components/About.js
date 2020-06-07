@@ -1,14 +1,11 @@
 import React from 'react';
 import { Section } from '../styles';
-import { T, Tabs } from './index';
+import { T, Tabs, PageTitle } from './index';
 
 const AboutSection = () => {
   return (
     <Section>
-      <h2>
-        <T translationKey="resourcesTitle" />
-      </h2>
-
+      <PageTitle titleName="resourcesTitle"></PageTitle>
       <Tabs tabs={['about', 'cv']}></Tabs>
     </Section>
   );

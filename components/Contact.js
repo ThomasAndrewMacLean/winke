@@ -1,14 +1,13 @@
 import React from 'react';
 import { Section } from '../styles';
-import { T } from './index';
+import { T, PageTitle } from './index';
 import styled from 'styled-components';
 
 const ContactSection = () => {
   return (
     <Section>
-      <h2>
-        <T translationKey="contactTitle" />
-      </h2>
+      <PageTitle titleName="contactTitle"></PageTitle>
+
       <T translationKey="contactText" />
 
       <Address>

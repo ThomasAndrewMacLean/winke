@@ -11,7 +11,12 @@ const PageTitle = ({ titleName }) => {
   );
 };
 
-const Title = styled.h2``;
+const Title = styled.h2`
+  opacity: 0;
+  @media (max-width: ${(props) => props.theme.medium}) {
+    opacity: 1;
+  }
+`;
 
 PageTitle.propTypes = {
   titleName: PropTypes.string.isRequired,

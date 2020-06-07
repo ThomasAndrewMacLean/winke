@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Section } from '../styles';
-import { T } from './index';
+import { T, PageTitle } from './index';
 import { BomenContext } from '../utils/contexts';
 
 import styled from 'styled-components';
@@ -11,9 +11,7 @@ const ExpoSection = () => {
   const bomen = getBomen(pics);
   return (
     <Section>
-      <h2>
-        <T translationKey="plant a treeTitle" />
-      </h2>
+      <PageTitle titleName="plant a treeTitle"></PageTitle>
 
       <T translationKey="plant a treeText" />
       <Wrap>
@@ -28,6 +26,7 @@ const ExpoSection = () => {
 const Wrap = styled.div`
   display: flex;
   flex-wrap: wrap;
+  padding-top: 4rem;
 `;
 const Boom = styled.img`
   width: 200px;

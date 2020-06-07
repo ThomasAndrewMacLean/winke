@@ -1,15 +1,12 @@
 import React from 'react';
 import { Section } from '../styles';
-import { T } from './index';
+import { T, PageTitle } from './index';
 import styled from 'styled-components';
 
 const ExpoSection = () => {
   return (
     <Section>
-      <h2>
-        <T translationKey="showsTitle" />
-      </h2>
-
+      <PageTitle titleName="showsTitle"></PageTitle>
       <T translationKey="expoText" />
 
       <Iframe

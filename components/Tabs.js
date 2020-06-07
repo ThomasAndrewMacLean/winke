@@ -17,9 +17,9 @@ const Tabs = ({ tabs }) => {
           </TabButton>
         ))}
       </div>
-      <div className="text">
+      <TabText>
         <T translationKey={tabs[selectedTab] + 'Text'} />
-      </div>
+      </TabText>
     </div>
   );
 };
@@ -31,5 +31,8 @@ const TabButton = styled.button`
   padding-right: 1rem;
   padding-bottom: 1rem;
   text-decoration: ${({ selectedTab }) => selectedTab && 'underline'};
+`;
+const TabText = styled.div`
+  padding-bottom: 10rem;
 `;
 export default Tabs;
