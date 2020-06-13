@@ -72,7 +72,7 @@ const Form = styled.form`
     font-family: inherit;
     font-size: inherit;
     border: none;
-    border-bottom: 2px solid var(--light);
+    border-bottom: 1px solid var(--light);
     line-height: 2rem;
     margin-bottom: 1rem;
     resize: none;
@@ -80,10 +80,10 @@ const Form = styled.form`
 
   input[type='submit'] {
     cursor: pointer;
-    background: #333;
-    color: #fff;
+    /* background: #333; */
+    color: #333;
     padding: 0.5rem 2rem;
-    border: none; //2px solid var(--light);
+    border: 1px solid var(--light);
   }
 `;
 

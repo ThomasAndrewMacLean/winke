@@ -22,6 +22,12 @@ export const getImageName = (context, id) => {
     context.find((p) => p.id == id) && context.find((p) => p.id == id).name
   );
 };
+export const getImageDescriptions = (context, id) => {
+  return (
+    context.find((p) => p.id == id) &&
+    context.find((p) => p.id == id).description
+  );
+};
 
 export const getDataFromAirtable = async () => {
   const url =

@@ -107,6 +107,9 @@ const ScrollWrapper = styled.div`
     margin-left: -10vw;
     width: 100vw;
   }
+  @media (min-width: ${(props) => props.theme.medium}) {
+    display: none;
+  }
 `;
 const NextButton = styled.button`
   border: none;

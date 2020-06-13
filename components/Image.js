@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { PictureContext } from '../utils/contexts';
 import PropTypes from 'prop-types';
-import { getImageUrl, getImageName } from '../utils';
+import { getImageUrl, getImageName, getImageDescriptions } from '../utils';
 import styled from 'styled-components';
 
 const Image = ({ imageId, showName }) => {
@@ -13,7 +13,8 @@ const Image = ({ imageId, showName }) => {
 
       {showName && click && (
         <ImageName>
-          <span>{getImageName(pics, imageId)}</span>
+          <h4>{getImageName(pics, imageId)}</h4>
+          <span>{getImageDescriptions(pics, imageId)}</span>
         </ImageName>
       )}
     </ImageWrap>
@@ -25,6 +26,9 @@ export const ImageWrap = styled.div`
   cursor: ${(props) => props.showName && 'help'};
 `;
 const ImageName = styled.span`
+  h4 {
+    margin-bottom: 1rem;
+  }
   background: #ffffff80;
   color: #333;
   text-shadow: 0px 0px 3px #ffffff;
@@ -35,11 +39,14 @@ const ImageName = styled.span`
   bottom: 0;
   opacity: 0;
   display: flex;
+  flex-direction: column;
+  max-width: 300px;
   justify-content: center;
   align-items: center;
+  opacity: 1;
+  margin: auto;
   &:hover,
   &:focus {
-    opacity: 1;
   }
 `;
 Image.propTypes = {
