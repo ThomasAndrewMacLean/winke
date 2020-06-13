@@ -90,8 +90,10 @@ const Uitleg = styled.div`
 `;
 const Pic = styled.img`
   outline: 1px solid #333;
-  height: 80vh;
-  width: 400px;
+  height: 50vh;
+  width: 300px;
+  object-fit: cover;
+  margin: 0 4rem;
 `;
 const Lijst = styled.div`
   display: flex;
@@ -104,6 +106,7 @@ const Lijst = styled.div`
   }
 `;
 const Big = styled.div`
+  margin-top: 6rem;
   width: calc(100vw - 175px);
   display: flex;
   position: relative;
