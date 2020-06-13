@@ -33,7 +33,7 @@ const Boom = styled.img`
 
   height: 200px;
   object-fit: cover;
-
+  padding: 0.3em;
   @media (max-width: ${(props) => props.theme.small}) {
     width: 50%;
   }
