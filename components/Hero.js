@@ -2,18 +2,21 @@ import React, { useContext } from 'react';
 import { Section } from '../styles';
 import { Image, T } from './index';
 import { ImageWrap } from './Image';
-import { TranslationContext } from '../utils/contexts';
+import { TranslationContext, PictureContext } from '../utils/contexts';
 
 import styled from 'styled-components';
 
 const Hero = () => {
   const translationsFromContext = useContext(TranslationContext) || [];
+  const imagesFromContext = useContext(PictureContext) || [];
   const telephoneNumber = translationsFromContext.find(
     (t) => t.id === 'telephone'
   )['NL zonder opmaak'];
+  console.log(imagesFromContext);
+  const x = imagesFromContext.indexOf(imagesFromContext.find((x) => x.home));
   return (
     <HeroSection>
-      <Image imageId="2"></Image>
+      <Image imageId={x}></Image>
       {/* <h2>
         <T translationKey="heroText"></T>
       </h2> */}
@@ -39,10 +42,11 @@ const HeroSection = styled(Section)`
     font-weight: 200;
     color: var(--grey-blue);
   }
-
+img{
+  max-height:80vh;
+}
   ${ImageWrap} {
     margin-left: auto;
-
     /* @media (max-width: ${(props) => props.theme.medium}) {
       width: 175%;
     } */

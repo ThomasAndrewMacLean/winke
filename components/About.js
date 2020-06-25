@@ -6,7 +6,7 @@ const AboutSection = () => {
   return (
     <Section>
       <PageTitle titleName="resourcesTitle"></PageTitle>
-      <Tabs tabs={['about', 'cv']}></Tabs>
+      <Tabs tabs={['about', 'cv', 'press']}></Tabs>
     </Section>
   );
 };

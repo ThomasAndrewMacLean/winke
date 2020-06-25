@@ -17,6 +17,11 @@ export const getBomen = (context) => {
     .pic.map((x) => x.thumbnails.large.url);
 };
 
+export const getInvasion = (context) => {
+  return context
+    .find((p) => p.id == 'invasion')
+    .pic.map((x) => x.thumbnails.large.url);
+};
 
 export const getImageName = (context, id) => {
   return (

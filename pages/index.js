@@ -8,7 +8,7 @@ import {
   Contact,
   Work,
   Observer,
-  Plant,
+  Plant,Invasion
 } from '../components';
 import { getDataFromAirtable } from '../utils';
 import {
@@ -18,9 +18,10 @@ import {
 } from '../utils/contexts';
 import PropTypes from 'prop-types';
 
-const IndexPage = ({ translations, pics, pics2 }) => {
+const IndexPage = ({ translations, pics, projects }) => {
+  console.log(projects);
   return (
-    <BomenContext.Provider value={pics2}>
+    <BomenContext.Provider value={projects}>
       <PictureContext.Provider value={pics}>
         <TranslationContext.Provider value={translations}>
           <Layout>
@@ -40,6 +41,9 @@ const IndexPage = ({ translations, pics, pics2 }) => {
             </Observer>
             <Observer id="plant a tree">
               <Plant></Plant>
+            </Observer>
+            <Observer id="invasion">
+              <Invasion></Invasion>
             </Observer>
             <Observer id="shows">
               <Expo></Expo>
@@ -66,6 +70,6 @@ export const getStaticProps = async () => {
 IndexPage.propTypes = {
   translations: PropTypes.array.isRequired,
   pics: PropTypes.array.isRequired,
-  pics2: PropTypes.array.isRequired,
+  projects: PropTypes.array.isRequired,
 };
 export default IndexPage;

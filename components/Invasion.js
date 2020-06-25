@@ -4,19 +4,19 @@ import { T, PageTitle } from './index';
 import { BomenContext } from '../utils/contexts';
 
 import styled from 'styled-components';
-import { getBomen } from '../utils';
+import { getInvasion } from '../utils';
 
-const ExpoSection = () => {
+const InvasionSection = () => {
   const pics = useContext(BomenContext);
   console.log('🌲', pics);
-  const bomen = getBomen(pics);
+  const bomen = getInvasion(pics);
   return (
     <Section>
       <TreeWrap>
         <>
-          <PageTitle titleName="plant a treeTitle"></PageTitle>
+          <PageTitle titleName="invasionTitle"></PageTitle>
 
-          <T translationKey="plant a treeText" />
+          <T  translationKey="invasionText" />
         </>
         <Wrap>
           {bomen.map((boom, index) => {
@@ -31,7 +31,7 @@ const TreeWrap = styled.div`
   p {
     line-height: 2rem;
   }
-  /* //  display: flex; */
+  display: flex;
 `;
 const Wrap = styled.div`
   display: flex;
@@ -49,4 +49,4 @@ const Boom = styled.img`
   }
 `;
 
-export default ExpoSection;
+export default InvasionSection;

@@ -12,5 +12,7 @@ export { default as Observer } from './Observer';
 export { default as Caroussel } from './Caroussel';
 export { default as Footer } from './Footer';
 export { default as Plant } from './Plant';
+export { default as Invasion } from './Invasion';
+
 export { default as Tabs } from './Tabs';
 export { default as PageTitle } from './PageTitle';

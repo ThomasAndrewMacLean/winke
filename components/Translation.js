@@ -3,7 +3,7 @@ import marked from 'marked';
 import { TranslationContext } from '../utils/contexts';
 import PropTypes from 'prop-types';
 
-const Translation = ({ translationKey }) => {
+const Translation = ({ translationKey, style }) => {
   const [showKeys, setShowKeys] = useState(false);
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -24,6 +24,7 @@ const Translation = ({ translationKey }) => {
     )
   ) : (
     <span
+      style={{ ...style }}
       className={showKeys ? 'showKeys' : ''}
       dangerouslySetInnerHTML={{
         __html: marked(

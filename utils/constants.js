@@ -1,1 +1,9 @@
-export const links = ['work', 'plant a tree', 'shows', 'resources', 'contact'];
+export const links = [
+  'home',
+  'work',
+  'plant a tree',
+  'invasion',
+  'shows',
+  'resources',
+  'contact',
+];

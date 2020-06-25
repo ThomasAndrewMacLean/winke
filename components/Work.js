@@ -8,7 +8,7 @@ const WorkSection = () => {
   const [picSelected, setPicSelected] = useState(0);
   const [subSelected, setSubSelected] = useState(0);
   const picsRaw = useContext(PictureContext);
-  const pics = picsRaw.filter((x) => x.name);
+  const pics = picsRaw.filter((x) => x.name && !x.home);
 
   return (
     <Section>
@@ -85,6 +85,9 @@ const Uitleg = styled.div`
   padding: 2rem;
   p {
     font-size: 10px;
+  }
+  h4 {
+    margin-bottom: 1rem;
   }
   width: 25%;
 `;
