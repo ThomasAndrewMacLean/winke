@@ -122,7 +122,8 @@ const Uitleg = styled.div`
   justify-content: center;
   padding: 2rem;
   p {
-    font-size: 10px;
+    /* font-size: 10px; */
+    opacity: 0.6;
   }
   h4 {
     margin-bottom: 1rem;
