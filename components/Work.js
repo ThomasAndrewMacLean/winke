@@ -7,11 +7,22 @@ import styled from 'styled-components';
 const WorkSection = () => {
   const [picSelected, setPicSelected] = useState(0);
   const [subSelected, setSubSelected] = useState(0);
+  const [fullScreen, setFullScreen] = useState(false);
   const picsRaw = useContext(PictureContext);
   const pics = picsRaw.filter((x) => x.name && !x.home);
+  console.log(pics[picSelected].pic[subSelected]);
 
+  const zoom = () => {
+    console.log(',?./?.?kljdsmf');
+    setFullScreen(true);
+  };
   return (
     <Section>
+      {fullScreen && (
+        <Modal onClick={() => setFullScreen(false)}>
+          <Pic src={pics[picSelected].pic[subSelected].url}></Pic>
+        </Modal>
+      )}
       <PageTitle titleName="workTitle"></PageTitle>
 
       <Caroussel />
@@ -33,9 +44,28 @@ const WorkSection = () => {
                 </Sub>
               );
             })}
+            <svg
+              onClick={zoom}
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <polyline points="9 21 3 21 3 15"></polyline>
+              <line x1="21" y1="3" x2="14" y2="10"></line>
+              <line x1="3" y1="21" x2="10" y2="14"></line>
+            </svg>
           </Subs>
         )}
-        <Pic src={pics[picSelected].pic[subSelected].url}></Pic>
+        <Pic
+          src={pics[picSelected].pic[subSelected].thumbnails.large.url}
+        ></Pic>
         <Lijst>
           <ul>
             {pics.map((p, i) => {
@@ -77,6 +107,14 @@ const Subs = styled.div`
     cursor: pointer;
     padding: 0 0.4rem;
   }
+  svg {
+    margin-top: 3px;
+    margin-left: 5px;
+    cursor: pointer;
+    &:hover {
+      color: black;
+    }
+  }
 `;
 const Uitleg = styled.div`
   display: flex;
@@ -88,6 +126,7 @@ const Uitleg = styled.div`
   }
   h4 {
     margin-bottom: 1rem;
+    color: black;
   }
   width: 25%;
 `;
@@ -117,5 +156,20 @@ const Big = styled.div`
     display: none;
   }
 `;
-
+const Modal = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+  img {
+    height: 90vh;
+    width: auto;
+  }
+`;
 export default WorkSection;

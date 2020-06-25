@@ -7,50 +7,58 @@ const ContactSection = () => {
   return (
     <Section>
       <PageTitle titleName="contactTitle"></PageTitle>
+      <Wrap>
+        <div>
+          <T translationKey="contactText" />
 
-      <T translationKey="contactText" />
+          <Address>
+            <T translationKey="address" />
 
-      <Address>
-        <T translationKey="address" />
+            <T translationKey="telephone" />
 
-        <T translationKey="telephone" />
-
-        <T translationKey="email" />
-      </Address>
-
-      <Form>
-        <div className="input-wrap">
-          <label htmlFor="name">
-            <T translationKey="contactName" />
-          </label>
-          <input required type="text" name="name" id="name" />
+            <T translationKey="email" />
+          </Address>
         </div>
 
-        <div className="input-wrap">
-          <label htmlFor="email">
-            <T translationKey="contactEmail" />
-          </label>
-          <input required type="email" name="email" id="email" />
-        </div>
+        <Form>
+          <div className="input-wrap">
+            <label htmlFor="name">
+              <T translationKey="contactName" />
+            </label>
+            <input required type="text" name="name" id="name" />
+          </div>
 
-        <div className="input-wrap">
-          <label htmlFor="message">
-            <T translationKey="contactMessage" />
-          </label>
-          <textarea
-            required
-            name="message"
-            id="message"
-            cols="30"
-            rows="5"
-          ></textarea>
-        </div>
+          <div className="input-wrap">
+            <label htmlFor="email">
+              <T translationKey="contactEmail" />
+            </label>
+            <input required type="email" name="email" id="email" />
+          </div>
 
-        <input type="submit" value="Send" />
-      </Form>
+          <div className="input-wrap">
+            <label htmlFor="message">
+              <T translationKey="contactMessage" />
+            </label>
+            <textarea
+              required
+              name="message"
+              id="message"
+              cols="30"
+              rows="5"
+            ></textarea>
+          </div>
+
+          <input type="submit" value="Send" />
+        </Form>
+      </Wrap>
     </Section>
   );
 };
+
+const Wrap = styled.div`
+  /* display: flex;
+  flex-direction: row-reverse; */
+`;
 
 const Address = styled.address`
   padding-top: 2rem;
@@ -72,7 +80,7 @@ const Form = styled.form`
     font-family: inherit;
     font-size: inherit;
     border: none;
-    border-bottom: 1px solid var(--light);
+    border: 1px solid var(--light);
     line-height: 2rem;
     margin-bottom: 1rem;
     resize: none;

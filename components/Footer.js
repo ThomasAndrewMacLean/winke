@@ -11,7 +11,10 @@ const Footer = () => {
   return (
     <SiteFooter>
       <span className="copyright">
-        © 2010-{new Date().getFullYear()} Winke Besard
+        <a href="/privacy" target="_blank">
+          privacy terms
+        </a>
+        <br />© 2010-{new Date().getFullYear()} Winke Besard
       </span>
 
       <address>
@@ -24,10 +27,11 @@ const Footer = () => {
             <img src="icon-instagram.svg"></img>
           </a>
         </div>
-        <a href={'tel:' + telephoneNumber}>
+        {/* <a href={'tel:' + telephoneNumber}>
           <T translationKey="telephone" />
-        </a>
+        </a> */}
         <T translationKey="email" />
+        made by westerling & maclean
       </address>
     </SiteFooter>
   );
@@ -58,6 +62,7 @@ const SiteFooter = styled.footer`
   .socialIcons {
     img {
       height: 25px;
+      opacity: 0.7;
     }
     a {
       padding-left: 1rem;

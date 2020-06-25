@@ -6,6 +6,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 export const prefix = isProduction ? '' : '';
 
 export const getImageUrl = (context, id, full) => {
+  if (!context.find((p) => p.id == id)) return '';
   return full
     ? context.find((p) => p.id == id).pic[0].url
     : context.find((p) => p.id == id).pic[0].thumbnails.large.url;

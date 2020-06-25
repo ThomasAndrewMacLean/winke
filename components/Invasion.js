@@ -16,7 +16,7 @@ const InvasionSection = () => {
         <>
           <PageTitle titleName="invasionTitle"></PageTitle>
 
-          <T  translationKey="invasionText" />
+          <T translationKey="invasionText" />
         </>
         <Wrap>
           {bomen.map((boom, index) => {
@@ -30,6 +30,11 @@ const InvasionSection = () => {
 const TreeWrap = styled.div`
   p {
     line-height: 2rem;
+  }
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   display: flex;
 `;
