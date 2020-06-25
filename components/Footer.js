@@ -61,8 +61,13 @@ const SiteFooter = styled.footer`
 
   .socialIcons {
     img {
-      height: 25px;
+      height: 18px;
       opacity: 0.7;
+
+      &:hover {
+        opacity: 1;
+        cursor: pointer;
+      }
     }
     a {
       padding-left: 1rem;

@@ -28,6 +28,7 @@ const InvasionSection = () => {
   );
 };
 const TreeWrap = styled.div`
+  position: relative;
   p {
     line-height: 2rem;
   }
@@ -42,6 +43,9 @@ const Wrap = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding-top: 4rem;
+  position: absolute;
+  right: -38%;
+  flex-direction: column;
 `;
 const Boom = styled.img`
   width: 200px;
