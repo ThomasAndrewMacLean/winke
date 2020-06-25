@@ -8,17 +8,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
-    
-    if (document.location.search.includes('barlow')) {
-      document.body.style.fontFamily = `Barlow, sans-serif`;
-    }
-    if (document.location.search.includes('thasadith')) {
-      document.body.style.fontFamily = `'Thasadith', sans-serif`;
-    }
-
-    if (document.location.search.includes('red')) {
-      document.body.style.fontFamily = `'Red Hat Display', sans-serif`;
-    }
+    document.body.style.fontFamily = `Barlow, sans-serif`;
   }, []);
   return (
     // <PictureContext.Provider value={pics}>
