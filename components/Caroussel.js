@@ -1,10 +1,14 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useContext } from 'react';
 import { Image } from './index';
 import styled from 'styled-components';
+import { PictureContext } from '../utils/contexts';
 
 const Caroussel = () => {
   // TODO get live amount of images from airtable
-  const imagesArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  //const imagesArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const pics = useContext(PictureContext);
+  const imagesArr = pics.map((p) => p.id);
+  console.log(imagesArr);
   const ref = useRef();
   const firstRef = useRef();
   const lastRef = useRef();

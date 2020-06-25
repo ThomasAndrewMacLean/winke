@@ -30,7 +30,7 @@ const Footer = () => {
         {/* <a href={'tel:' + telephoneNumber}>
           <T translationKey="telephone" />
         </a> */}
-        <T translationKey="email" />
+        {/* <T translationKey="email" /> */}
         made by westerling & maclean
       </address>
     </SiteFooter>

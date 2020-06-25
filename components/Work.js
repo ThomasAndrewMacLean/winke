@@ -144,6 +144,9 @@ const Lijst = styled.div`
   padding: 2rem;
   justify-content: center;
   align-items: center;
+  ul {
+    list-style: none;
+  }
   li {
     cursor: pointer;
   }
