@@ -14,8 +14,6 @@ const InvasionSection = () => {
     <Section>
       <TreeWrap>
         <>
-          <PageTitle titleName="invasionTitle"></PageTitle>
-
           <T translationKey="invasionText" />
         </>
         <Wrap>
