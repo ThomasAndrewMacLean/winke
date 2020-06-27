@@ -60,8 +60,9 @@ const Wrap = styled.div`
 const Boom = styled.img`
   width: 200px;
 
-  height: 200px;
+  height: auto;
   object-fit: cover;
+  object-position: 50% 50%;
   padding: 0.3em;
   @media (max-width: ${(props) => props.theme.medium}) {
     width: 50%;
