@@ -13,7 +13,8 @@ const Hero = () => {
     (t) => t.id === 'telephone'
   )['NL zonder opmaak'];
   console.log(imagesFromContext);
-  const x = imagesFromContext.indexOf(imagesFromContext.find((x) => x.home));
+  const x = imagesFromContext.find((x) => x.home).id;
+  console.log(x.id);
   return (
     <HeroSection>
       <Image imageId={x}></Image>
