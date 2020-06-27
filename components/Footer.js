@@ -1,20 +1,20 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { TranslationContext } from '../utils/contexts';
+// import { TranslationContext } from '../utils/contexts';
 import { T } from './index';
 
 const Footer = () => {
-  const translationsFromContext = useContext(TranslationContext) || [];
-  const telephoneNumber = translationsFromContext.find(
-    (t) => t.id === 'telephone'
-  )['NL zonder opmaak'];
+  //const translationsFromContext = useContext(TranslationContext) || [];
+  // const telephoneNumber = translationsFromContext.find(
+  //   (t) => t.id === 'telephone'
+  // )['NL zonder opmaak'];
   return (
     <SiteFooter>
       <span className="copyright">
         <a href="/privacy" target="_blank">
           privacy terms
         </a>
-        <br />© 2010-{new Date().getFullYear()} Winke Besard
+        © 2010-{new Date().getFullYear()} Winke Besard
       </span>
 
       <address>
@@ -56,7 +56,10 @@ const SiteFooter = styled.footer`
   .copyright {
     font-size: 10px;
     pointer-events: all;
-    line-height: 1.5rem;
+    a {
+      padding-bottom: 0.5rem;
+      display: block;
+    }
   }
 
   .socialIcons {

@@ -21,7 +21,15 @@ const Hero = () => {
         <T translationKey="heroText"></T>
       </h2> */}
       <address>
-        <T translationKey="address" />
+        <div className="socialIcons">
+          <a>
+            <img src="icon-facebook.svg"></img>
+          </a>
+          <a>
+            <img src="icon-instagram.svg"></img>
+          </a>
+        </div>
+        {/* <T translationKey="address" /> */}
         <a href={'tel:' + telephoneNumber}>
           <T translationKey="telephone" />
         </a>
@@ -57,6 +65,16 @@ img{
     }
     @media (max-width: ${(props) => props.theme.medium}) {
       address{
+        .socialIcons{
+          img{
+            margin-right:1rem;
+            margin-bottom:1rem;
+            width: 18px;
+            height: 18px;
+            opacity: 0.7;
+          }
+
+        }
         position: absolute;
         display: block;
         bottom: 4rem;

@@ -38,6 +38,13 @@ const Layout = ({ children }) => {
           <T translationKey="title" />
         </Title>
         <TitleMobile areAtTop={areAtTop}>
+          <a>
+            <img src="icon-facebook.svg"></img>
+          </a>
+          <a>
+            <img src="icon-instagram.svg"></img>
+          </a>
+
           <T translationKey="title" />
         </TitleMobile>
       </Header>
@@ -69,6 +76,14 @@ const Main = styled.main`
 `;
 
 const TitleMobile = styled.div`
+  display: flex;
+  a {
+    margin-right: 1rem;
+    transform: rotate(90deg);
+    opacity: 0.7;
+    height: 40px;
+    width: 40px;
+  }
   color: var(--grey-blue);
   h1 {
     font-weight: 100;
