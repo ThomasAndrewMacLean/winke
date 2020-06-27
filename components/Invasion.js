@@ -13,18 +13,23 @@ const InvasionSection = () => {
   return (
     <Section>
       <TreeWrap>
-        <>
-          <T translationKey="invasionText" />
-        </>
+        <PageTitle titleName="invasionTitle"></PageTitle>
+
+        <T translationKey="invasionText" />
         <Wrap>
           {bomen.map((boom, index) => {
             return <Boom key={boom + index} src={boom}></Boom>;
-          })}
+          })}{' '}
         </Wrap>
       </TreeWrap>
     </Section>
   );
 };
+const Wrap = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 4rem;
+`;
 const TreeWrap = styled.div`
   position: relative;
   p {
@@ -35,16 +40,16 @@ const TreeWrap = styled.div`
     justify-content: center;
     align-items: center;
   }
-  display: flex;
+  // display: flex;
 `;
-const Wrap = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 4rem;
-  position: absolute;
-  right: -38%;
-  flex-direction: column;
-`;
+// const Wrap = styled.div`
+//   display: flex;
+//   flex-wrap: wrap;
+//   padding-top: 4rem;
+//   position: absolute;
+//   right: -38%;
+//   flex-direction: column;
+// `;
 const Boom = styled.img`
   width: 200px;
 

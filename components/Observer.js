@@ -18,7 +18,7 @@ const Observer = ({ id, children }) => {
       {
         root: null,
         rootMargin: '0px',
-        threshold: 0.5,
+        threshold: 0.3,
       }
     );
     if (ref.current) {

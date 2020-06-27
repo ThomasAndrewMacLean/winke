@@ -6,7 +6,7 @@ export { default as Hero } from './Hero';
 export { default as Image } from './Image';
 export { default as About } from './About';
 export { default as Work } from './Work';
-export { default as Expo } from './Expo';
+export { default as Show } from './Show';
 export { default as Contact } from './Contact';
 export { default as Observer } from './Observer';
 export { default as Caroussel } from './Caroussel';

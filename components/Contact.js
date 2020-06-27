@@ -49,6 +49,7 @@ const ContactSection = () => {
               <T translationKey="telephone" />
 
               <T translationKey="email" />
+              <T translationKey="btwnummer" />
             </Address>
           </div>
 
@@ -58,7 +59,12 @@ const ContactSection = () => {
               <label htmlFor="emailmailing">
                 <T translationKey="mailinglistLabel" />
               </label>
-              <input required type="email" name="emailmailing" id="emailmailing" />
+              <input
+                required
+                type="email"
+                name="emailmailing"
+                id="emailmailing"
+              />
             </div>
             <input type="submit" value="Send" />
           </FormMailingList>
@@ -110,7 +116,7 @@ const Wrap = styled.div`
 `;
 
 const FormMailingList = styled.form`
-  margin-top: 2rem;
+  margin-top: 1rem;
 `;
 const Address = styled.address`
   margin-bottom: 2rem;

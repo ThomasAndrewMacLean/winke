@@ -12,12 +12,11 @@ const ExpoSection = () => {
   const bomen = getBomen(pics);
   return (
     <Section>
+      <PageTitle titleName="plant a treeTitle"></PageTitle>
       <TreeWrap>
-        <>
-          <PageTitle titleName="plant a treeTitle"></PageTitle>
-
+        <Text>
           <T translationKey="plant a treeText" />
-        </>
+        </Text>
         <Wrap>
           {bomen.map((boom, index) => {
             return <Boom key={boom + index} src={boom}></Boom>;
@@ -27,16 +26,34 @@ const ExpoSection = () => {
     </Section>
   );
 };
+const Text = styled.div`
+  @media (min-width: ${(props) => props.theme.medium}) {
+    max-width: 40%;
+    margin-top: 2rem;
+  }
+`;
 const TreeWrap = styled.div`
+  position: relative;
+  @media (min-width: ${(props) => props.theme.medium}) {
+    margin-left: -4rem;
+
+    width: calc(100vw - 375px);
+  }
   p {
     line-height: 2rem;
   }
-  /* //  display: flex; */
+  display: flex;
+  @media (max-width: ${(props) => props.theme.medium}) {
+    flex-direction: column;
+  }
 `;
 const Wrap = styled.div`
+  margin-left: 2rem;
   display: flex;
   flex-wrap: wrap;
-  padding-top: 4rem;
+  @media (max-width: ${(props) => props.theme.medium}) {
+    padding-top: 4rem;
+  }
 `;
 const Boom = styled.img`
   width: 200px;
@@ -44,7 +61,7 @@ const Boom = styled.img`
   height: 200px;
   object-fit: cover;
   padding: 0.3em;
-  @media (max-width: ${(props) => props.theme.small}) {
+  @media (max-width: ${(props) => props.theme.medium}) {
     width: 50%;
   }
 `;

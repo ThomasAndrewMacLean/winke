@@ -1,13 +1,12 @@
 import React from 'react';
 import { Section } from '../styles';
 import { T, PageTitle } from './index';
-import styled from 'styled-components';
 
 const ExpoSection = () => {
   return (
     <Section>
       <PageTitle titleName="showsTitle"></PageTitle>
-      <T translationKey="expoText" />
+      <T translationKey="showsText" />
 
       {/* <Iframe
         style={{ marginTop: '3rem' }}
