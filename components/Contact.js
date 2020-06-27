@@ -7,70 +7,84 @@ const ContactSection = () => {
   return (
     <Section>
       <PageTitle titleName="contactTitle"></PageTitle>
+      <T translationKey="contactText" />
       <Wrap>
-        <div>
-          <T translationKey="contactText" />
+        <Column>
+          <Form>
+            <div className="input-wrap">
+              <label htmlFor="name">
+                <T translationKey="contactName" />
+              </label>
+              <input required type="text" name="name" id="name" />
+            </div>
 
-          <Address>
-            <T translationKey="address" />
+            <div className="input-wrap">
+              <label htmlFor="email">
+                <T translationKey="contactEmail" />
+              </label>
+              <input required type="email" name="email" id="email" />
+            </div>
 
-            <T translationKey="telephone" />
+            <div className="input-wrap">
+              <label htmlFor="message">
+                <T translationKey="contactMessage" />
+              </label>
+              <textarea
+                required
+                name="message"
+                id="message"
+                cols="30"
+                rows="5"
+              ></textarea>
+            </div>
 
-            <T translationKey="email" />
-          </Address>
-        </div>
+            <input type="submit" value="Send" />
+          </Form>
+        </Column>
+        <Column>
+          <div>
+            <Address>
+              <T translationKey="address" />
 
-        <Form>
-          <div className="input-wrap">
-            <label htmlFor="name">
-              <T translationKey="contactName" />
-            </label>
-            <input required type="text" name="name" id="name" />
+              <T translationKey="telephone" />
+
+              <T translationKey="email" />
+            </Address>
           </div>
 
-          <div className="input-wrap">
-            <label htmlFor="email">
-              <T translationKey="contactEmail" />
-            </label>
-            <input required type="email" name="email" id="email" />
-          </div>
-
-          <div className="input-wrap">
-            <label htmlFor="message">
-              <T translationKey="contactMessage" />
-            </label>
-            <textarea
-              required
-              name="message"
-              id="message"
-              cols="30"
-              rows="5"
-            ></textarea>
-          </div>
-
-          <input type="submit" value="Send" />
-        </Form>
+          <T translationKey="mailinglist" />
+          <FormMailingList>
+            <div className="input-wrap">
+              <label htmlFor="emailmailing">
+                <T translationKey="mailinglistLabel" />
+              </label>
+              <input required type="email" name="emailmailing" id="emailmailing" />
+            </div>
+            <input type="submit" value="Send" />
+          </FormMailingList>
+        </Column>
       </Wrap>
     </Section>
   );
 };
 
+const Column = styled.div`
+  /* outline: 1px solid black; */
+  width: 50%;
+  &:last-of-type {
+    padding-left: 2rem;
+  }
+`;
 const Wrap = styled.div`
-  /* display: flex;
-  flex-direction: row-reverse; */
-`;
-
-const Address = styled.address`
-  padding-top: 2rem;
-`;
-const Form = styled.form`
+  display: flex;
   margin-top: 3rem;
+
   .input-wrap {
     display: flex;
     flex-direction: column;
   }
   label {
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     color: var(--darker-text);
   }
   textarea,
@@ -94,5 +108,13 @@ const Form = styled.form`
     border: 1px solid var(--light);
   }
 `;
+
+const FormMailingList = styled.form`
+  margin-top: 2rem;
+`;
+const Address = styled.address`
+  margin-bottom: 2rem;
+`;
+const Form = styled.form``;
 
 export default ContactSection;
