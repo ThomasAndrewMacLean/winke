@@ -80,10 +80,21 @@ const Column = styled.div`
   &:last-of-type {
     padding-left: 2rem;
   }
+
+  @media (max-width: ${(props) => props.theme.small}) {
+    width: 100%;
+    &:last-of-type {
+      padding-left: 0;
+    }
+  }
 `;
 const Wrap = styled.div`
   display: flex;
   margin-top: 3rem;
+
+  @media (max-width: ${(props) => props.theme.small}) {
+    flex-direction: column;
+  }
 
   .input-wrap {
     display: flex;

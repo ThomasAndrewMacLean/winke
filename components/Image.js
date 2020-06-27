@@ -45,6 +45,8 @@ const ImageName = styled.span`
   align-items: center;
   opacity: 1;
   margin: auto;
+  line-height: 1.5rem;
+  text-align: center;
   &:hover,
   &:focus {
   }

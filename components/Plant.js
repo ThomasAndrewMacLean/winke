@@ -48,7 +48,9 @@ const TreeWrap = styled.div`
   }
 `;
 const Wrap = styled.div`
-  margin-left: 2rem;
+  @media (min-width: ${(props) => props.theme.medium}) {
+    margin-left: 2rem;
+  }
   display: flex;
   flex-wrap: wrap;
   @media (max-width: ${(props) => props.theme.medium}) {

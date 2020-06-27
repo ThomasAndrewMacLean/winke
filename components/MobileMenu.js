@@ -74,6 +74,8 @@ const Nav = styled.nav`
     padding: 2rem;
     position: relative;
     outline: none;
+    background: #ffffffa3;
+    border-radius: 50%;
   }
   position: absolute;
 
