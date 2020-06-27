@@ -28,17 +28,17 @@ const ExpoSection = () => {
 const Text = styled.div`
   @media (min-width: ${(props) => props.theme.medium}) {
     max-width: 40%;
-    padding: 6rem;
+    padding-right: 2rem;
     margin-top: 2rem;
   }
 `;
 const TreeWrap = styled.div`
   position: relative;
   @media (min-width: ${(props) => props.theme.medium}) {
-    margin-left: -4rem;
-
-    margin-left: calc(-50vw + 300px + 175px);
-    width: calc(100vw - 175px);
+    /* margin-left: -4rem; */
+    /* background: lightblue; */
+    /* margin-left: calc(-50vw + 300px + 175px); */
+    width: calc(50vw + 300px - 4rem);
   }
   p {
     line-height: 2rem;
@@ -49,20 +49,29 @@ const TreeWrap = styled.div`
   }
 `;
 const Wrap = styled.div`
-  @media (min-width: ${(props) => props.theme.medium}) {
+display:grid;
+grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  img{
+    display: flex;
+  padding:0;
+}
+
+  gap: 10px ; 
+  /* @media (min-width: ${(props) => props.theme.medium}) {
     margin-left: 2rem;
   }
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
   @media (max-width: ${(props) => props.theme.medium}) {
     padding-top: 4rem;
-  }
+  } */
 `;
 const Boom = styled.img`
   width: 200px;
 
-  height: auto;
-  max-height: 200px;
+  height: 200px;
+
   object-fit: cover;
   object-position: 50% 50%;
   padding: 0.3em;
