@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { Section } from '../styles';
-import { T, PageTitle } from './index';
-import { BomenContext } from '../utils/contexts';
+import { Section } from '../../styles';
+import { T, PageTitle } from '../index';
+import { BomenContext } from '../../utils/contexts';
 
 import styled from 'styled-components';
-import { getBomen } from '../utils';
+import { getBomen } from '../../utils';
 
 const ExpoSection = () => {
   const pics = useContext(BomenContext);

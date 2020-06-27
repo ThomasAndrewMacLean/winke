@@ -74,7 +74,7 @@ const Nav = styled.nav`
     padding: 2rem;
     position: relative;
     outline: none;
-    background: #ffffffa3;
+    background:var(--white-opaque);
     border-radius: 50%;
   }
   position: absolute;

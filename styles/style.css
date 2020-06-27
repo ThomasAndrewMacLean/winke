@@ -9,6 +9,7 @@
   --text: #666;
   --light: #999;
   --white: #fff;
+  --white-opaque: #ffffffa3;
 }
 * {
   margin: 0;

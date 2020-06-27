@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { Section } from '../styles';
-import { Image, T } from './index';
-import { ImageWrap } from './Image';
-import { TranslationContext, PictureContext } from '../utils/contexts';
+import { Section } from '../../styles';
+import { Image, T } from '../index';
+import { ImageWrap } from '../Image';
+import { TranslationContext, PictureContext } from '../../utils/contexts';
 
 import styled from 'styled-components';
 
@@ -41,6 +41,15 @@ const Hero = () => {
 };
 
 const HeroSection = styled(Section)`
+${ImageWrap}{
+    position: absolute;
+    right: calc(-50vw + 300px + 4rem);
+
+    @media (max-width: ${(props) => props.theme.medium}) {
+      left:0;
+      right:0;
+    } 
+}
   display: flex;
   align-items: center;
   padding-top: 0;
@@ -52,8 +61,13 @@ const HeroSection = styled(Section)`
     color: var(--grey-blue);
   }
 img{
-  max-height:80vh;
-  
+  max-height:60vh;
+  width: calc(50vw + 300px - 4rem);
+  object-fit: cover;
+  @media (max-width: ${(props) => props.theme.medium}) {
+    width:100%;
+    } 
+ 
 }
   ${ImageWrap} {
     margin-left: auto;

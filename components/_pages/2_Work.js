@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { Section } from '../styles';
-import { T, Caroussel, PageTitle } from './index';
-import { PictureContext } from '../utils/contexts';
+import { Section } from '../../styles';
+import { Caroussel, PageTitle } from '../index';
+import { PictureContext } from '../../utils/contexts';
 import styled from 'styled-components';
 
 const WorkSection = () => {
@@ -11,7 +11,6 @@ const WorkSection = () => {
   const picsRaw = useContext(PictureContext);
   const pics = picsRaw.filter((x) => x.name && !x.home);
   console.log(pics[picSelected].pic[subSelected]);
-
 
   const zoom = () => {
     setFullScreen(true);
@@ -101,7 +100,7 @@ const Subs = styled.div`
 
   display: flex;
   top: -35px;
-  left: 30%;
+  left: 40%;
 
   p {
     cursor: pointer;
@@ -119,8 +118,14 @@ const Subs = styled.div`
 const Uitleg = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 2rem;
+  /* justify-content: center; */
+  /* padding: 2rem; */
+  /* padding-left: 0; */
+
+  width: 35%;
+  top: 70px;
+  position: absolute;
+
   p {
     /* font-size: 10px; */
     opacity: 0.6;
@@ -129,7 +134,6 @@ const Uitleg = styled.div`
     margin-bottom: 1rem;
     color: black;
   }
-  width: 25%;
 `;
 const Pic = styled.img`
   outline: 1px solid #333;
@@ -137,13 +141,19 @@ const Pic = styled.img`
   width: 300px;
   object-fit: cover;
   margin: 0 4rem;
+  margin-left: calc(35% + 4rem);
 `;
 const Lijst = styled.div`
-  display: flex;
+  /*  THIS IS TO HAVE IT NICELY NEXT TO THE PICTURE */
+  /* display: flex;
   flex-direction: column;
   padding: 2rem;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+
+  position: absolute;
+  right: 10px;
+  top: 70px;
   ul {
     list-style: none;
   }
@@ -153,7 +163,7 @@ const Lijst = styled.div`
 `;
 const Big = styled.div`
   margin-top: 6rem;
-  width: calc(100vw - 175px);
+  width: calc(50vw + 300px - 4rem);
   display: flex;
   position: relative;
   @media (max-width: ${(props) => props.theme.medium}) {

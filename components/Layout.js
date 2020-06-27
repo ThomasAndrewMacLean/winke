@@ -116,8 +116,11 @@ const Title = styled.a`
   transform-origin: right bottom;
   @media (max-width: ${(props) => props.theme.medium}) {
     opacity: ${(props) => (props.areAtTop ? '1' : '0')};
-
     pointer-events: none;
+    position: absolute;
+    right: 10vw;
+   // background: var(--white-opaque);
+    padding-right: 0;
   }
   h1 {
     font-weight: 100;

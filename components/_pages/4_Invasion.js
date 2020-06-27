@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { Section } from '../styles';
-import { T, PageTitle } from './index';
-import { BomenContext } from '../utils/contexts';
+import { Section } from '../../styles';
+import { T, PageTitle } from '../index';
+import { BomenContext } from '../../utils/contexts';
 
 import styled from 'styled-components';
-import { getInvasion } from '../utils';
+import { getInvasion } from '../../utils';
 
 const InvasionSection = () => {
   const pics = useContext(BomenContext);
