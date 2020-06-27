@@ -1,12 +1,15 @@
 import React from 'react';
 import { Section } from '../styles';
 import { T, PageTitle } from './index';
+import styled from 'styled-components';
 
 const ExpoSection = () => {
   return (
     <Section>
-      <PageTitle titleName="showsTitle"></PageTitle>
-      <T translationKey="showsText" />
+      <Wrap>
+        <PageTitle titleName="showsTitle"></PageTitle>
+        <T translationKey="showsText" />
+      </Wrap>
 
       {/* <Iframe
         style={{ marginTop: '3rem' }}
@@ -20,6 +23,16 @@ const ExpoSection = () => {
     </Section>
   );
 };
+const Wrap = styled.div`
+  p {
+    //color: red;
+  }
+  h1,
+  h2,
+  h3 {
+    margin-top: 2rem;
+  }
+`;
 // const Iframe = styled.iframe`
 //   @media (max-width: ${(props) => props.theme.medium}) {
 //     width: 100vw;
