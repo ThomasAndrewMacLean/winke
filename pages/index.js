@@ -3,7 +3,7 @@ import Head from 'next/head';
 import {
   Layout,
   Hero,
-  About,
+  Resources,
   Show,
   Contact,
   Work,
@@ -50,7 +50,7 @@ const IndexPage = ({ translations, pics, projects }) => {
               <Show></Show>
             </Observer>
             <Observer id="resources">
-              <About></About>
+              <Resources></Resources>
             </Observer>
             <Observer id="contact">
               <Contact></Contact>

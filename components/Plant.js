@@ -8,7 +8,6 @@ import { getBomen } from '../utils';
 
 const ExpoSection = () => {
   const pics = useContext(BomenContext);
-  console.log('🌲', pics);
   const bomen = getBomen(pics);
   return (
     <Section>
@@ -29,6 +28,7 @@ const ExpoSection = () => {
 const Text = styled.div`
   @media (min-width: ${(props) => props.theme.medium}) {
     max-width: 40%;
+    padding: 6rem;
     margin-top: 2rem;
   }
 `;
@@ -37,7 +37,8 @@ const TreeWrap = styled.div`
   @media (min-width: ${(props) => props.theme.medium}) {
     margin-left: -4rem;
 
-    width: calc(100vw - 375px);
+    margin-left: calc(-50vw + 300px + 175px);
+    width: calc(100vw - 175px);
   }
   p {
     line-height: 2rem;
@@ -61,6 +62,7 @@ const Boom = styled.img`
   width: 200px;
 
   height: auto;
+  max-height: 200px;
   object-fit: cover;
   object-position: 50% 50%;
   padding: 0.3em;

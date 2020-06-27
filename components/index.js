@@ -4,7 +4,7 @@ export { default as MobileMenu } from './MobileMenu';
 export { default as Layout } from './Layout';
 export { default as Hero } from './Hero';
 export { default as Image } from './Image';
-export { default as About } from './About';
+export { default as Resources } from './Resources';
 export { default as Work } from './Work';
 export { default as Show } from './Show';
 export { default as Contact } from './Contact';

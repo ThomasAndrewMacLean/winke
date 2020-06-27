@@ -12,8 +12,8 @@ const WorkSection = () => {
   const pics = picsRaw.filter((x) => x.name && !x.home);
   console.log(pics[picSelected].pic[subSelected]);
 
+
   const zoom = () => {
-    console.log(',?./?.?kljdsmf');
     setFullScreen(true);
   };
   return (

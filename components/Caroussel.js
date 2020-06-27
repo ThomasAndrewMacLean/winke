@@ -8,7 +8,6 @@ const Caroussel = () => {
   //const imagesArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const pics = useContext(PictureContext);
   const imagesArr = pics.map((p) => p.id);
-  console.log(imagesArr);
   const ref = useRef();
   const firstRef = useRef();
   const lastRef = useRef();
