@@ -53,6 +53,7 @@ const HeroSection = styled(Section)`
   }
 img{
   max-height:80vh;
+  
 }
   ${ImageWrap} {
     margin-left: auto;

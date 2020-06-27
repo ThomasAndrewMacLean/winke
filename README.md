@@ -21,3 +21,8 @@ https://docs.netlify.com/configure-builds/build-hooks/#parameters
 
 smooth scroll safari:
 https://dev.to/jonaskuske/comment/8n5j
+
+TODO:
+
+- hero image to the right of the screen
+- contact: more spacing between two columns => align send button to bottom message

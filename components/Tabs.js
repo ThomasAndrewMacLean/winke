@@ -33,6 +33,7 @@ const TabButton = styled.button`
   text-decoration: ${({ selectedTab }) => selectedTab && 'underline'};
 `;
 const TabText = styled.div`
+  margin-top: 3rem;
   padding-bottom: 10rem;
 `;
 export default Tabs;

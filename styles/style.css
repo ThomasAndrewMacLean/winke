@@ -22,6 +22,9 @@
   background: var(--light);
   color: var(--white);
 }
+a {
+  text-decoration: none;
+}
 html,
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, Verdana, Tahoma, sans-serif;
