@@ -51,6 +51,9 @@ const Subs = styled.div`
     cursor: pointer;
     padding: 0 0.4rem;
   }
+  @media (max-width: ${(props) => props.theme.medium}) {
+    display: none;
+  }
 `;
 const Sub = styled.p`
   color: ${(props) => props.active && 'black'};
