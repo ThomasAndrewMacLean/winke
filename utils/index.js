@@ -15,13 +15,38 @@ export const getImageUrl = (context, id, full) => {
 export const getBomen = (context) => {
   return context
     .find((p) => p.id == 'bomen')
-    .pic.map((x) => x.thumbnails.large.url);
+
+    .pic.filter((x) => x.thumbnails)
+    .map((x) => {
+      return { small: x.thumbnails.large.url, large: x.url };
+    });
 };
 
-export const getInvasion = (context) => {
+export const getBushranger = (context) => {
   return context
-    .find((p) => p.id == 'invasion')
-    .pic.map((x) => x.thumbnails.large.url);
+    .find((p) => p.id == 'bushranger')
+    .pic.filter((x) => x.thumbnails)
+    .map((x) => {
+      return { small: x.thumbnails.large.url, large: x.url };
+    });
+};
+
+export const getMouflon = (context) => {
+  return context
+    .find((p) => p.id == 'mouflon')
+    .pic.filter((x) => x.thumbnails)
+    .map((x) => {
+      return { small: x.thumbnails.large.url, large: x.url };
+    });
+};
+
+export const getTermietenberg = (context) => {
+  return context
+    .find((p) => p.id == 'termietenberg')
+    .pic.filter((x) => x.thumbnails)
+    .map((x) => {
+      return { small: x.thumbnails.large.url, large: x.url };
+    });
 };
 
 export const getImageName = (context, id) => {

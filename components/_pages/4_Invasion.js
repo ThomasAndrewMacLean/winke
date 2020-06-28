@@ -1,21 +1,31 @@
 import React, { useContext, useState } from 'react';
 import { Section } from '../../styles';
-import { T, PageTitle } from '../index';
+import { T, PageTitle, Modal } from '../index';
 import { BomenContext } from '../../utils/contexts';
 
 import styled from 'styled-components';
-import { getInvasion } from '../../utils';
-const NUMBER_OF_TREES = 12;
+import { getBushranger, getTermietenberg, getMouflon } from '../../utils';
+
+const NUMBER_OF_TREES = 8;
+
 const ExpoSection = () => {
   const [page, setPage] = useState(0);
+  const [bigTree, setBigTree] = useState('');
 
   const pics = useContext(BomenContext);
-  const bomen = getInvasion(pics);
-  //setMaxPage(bomen.length / NUMBER_OF_TREES);
-  console.log(bomen.length);
+  const bomen = getBushranger(pics);
+
   const maxPage = Math.ceil(bomen.length / NUMBER_OF_TREES);
   return (
     <Section>
+      {bigTree && (
+        <Modal
+          picSrc={bigTree}
+          close={() => {
+            setBigTree('');
+          }}
+        ></Modal>
+      )}
       <PageTitle titleName="invasionTitle"></PageTitle>
       <TreeWrap>
         <Text>
@@ -33,9 +43,17 @@ const ExpoSection = () => {
             })}
         </Subs>
         <Wrap>
-          {bomen.slice(page * 12, (page + 1) * 12).map((boom, index) => {
-            return <Boom key={boom + index} src={boom}></Boom>;
-          })}
+          {bomen
+            .slice(page * NUMBER_OF_TREES, (page + 1) * NUMBER_OF_TREES)
+            .map((boom, index) => {
+              return (
+                <Boom
+                  onClick={() => setBigTree(boom.large)}
+                  key={boom.small + index}
+                  src={boom.small}
+                ></Boom>
+              );
+            })}
         </Wrap>
       </TreeWrap>
     </Section>

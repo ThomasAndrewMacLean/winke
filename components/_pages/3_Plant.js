@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Section } from '../../styles';
-import { T, PageTitle } from '../index';
+import { T, PageTitle, Modal } from '../index';
 import { BomenContext } from '../../utils/contexts';
 
 import styled from 'styled-components';
@@ -8,6 +8,7 @@ import { getBomen } from '../../utils';
 const NUMBER_OF_TREES = 12;
 const ExpoSection = () => {
   const [page, setPage] = useState(0);
+  const [bigTree, setBigTree] = useState('');
 
   const pics = useContext(BomenContext);
   const bomen = getBomen(pics);
@@ -16,6 +17,14 @@ const ExpoSection = () => {
   const maxPage = Math.ceil(bomen.length / NUMBER_OF_TREES);
   return (
     <Section>
+      {bigTree && (
+        <Modal
+          picSrc={bigTree}
+          close={() => {
+            setBigTree('');
+          }}
+        ></Modal>
+      )}
       <PageTitle titleName="plant a treeTitle"></PageTitle>
       <TreeWrap>
         <Text>
@@ -33,9 +42,17 @@ const ExpoSection = () => {
             })}
         </Subs>
         <Wrap>
-          {bomen.slice(page * 12, (page + 1) * 12).map((boom, index) => {
-            return <Boom key={boom + index} src={boom}></Boom>;
-          })}
+          {bomen
+            .slice(page * NUMBER_OF_TREES, (page + 1) * NUMBER_OF_TREES)
+            .map((boom, index) => {
+              return (
+                <Boom
+                  onClick={() => setBigTree(boom.large)}
+                  key={boom.small + index}
+                  src={boom.small}
+                ></Boom>
+              );
+            })}
         </Wrap>
       </TreeWrap>
     </Section>

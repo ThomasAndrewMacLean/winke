@@ -13,6 +13,7 @@ export { default as Caroussel } from './Caroussel';
 export { default as Footer } from './Footer';
 export { default as Plant } from './_pages/3_Plant';
 export { default as Invasion } from './_pages/4_Invasion';
+export { default as Modal } from './Modal';
 
 export { default as Tabs } from './Tabs';
 export { default as PageTitle } from './PageTitle';
