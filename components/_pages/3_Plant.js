@@ -1,14 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Section } from '../../styles';
 import { T, PageTitle } from '../index';
 import { BomenContext } from '../../utils/contexts';
 
 import styled from 'styled-components';
 import { getBomen } from '../../utils';
-
+const NUMBER_OF_TREES = 12;
 const ExpoSection = () => {
+  const [page, setPage] = useState(0);
+
   const pics = useContext(BomenContext);
   const bomen = getBomen(pics);
+  //setMaxPage(bomen.length / NUMBER_OF_TREES);
+  console.log(bomen.length);
+  const maxPage = Math.ceil(bomen.length / NUMBER_OF_TREES);
   return (
     <Section>
       <PageTitle titleName="plant a treeTitle"></PageTitle>
@@ -16,8 +21,19 @@ const ExpoSection = () => {
         <Text>
           <T translationKey="plant a treeText" />
         </Text>
+        <Subs>
+          {Array(maxPage)
+            .fill(0)
+            .map((_, i) => {
+              return (
+                <Sub onClick={() => setPage(i)} active={i === page} key={i}>
+                  {i + 1}
+                </Sub>
+              );
+            })}
+        </Subs>
         <Wrap>
-          {bomen.slice(0, 9).map((boom, index) => {
+          {bomen.slice(page * 11, 12).map((boom, index) => {
             return <Boom key={boom + index} src={boom}></Boom>;
           })}
         </Wrap>
@@ -25,9 +41,23 @@ const ExpoSection = () => {
     </Section>
   );
 };
+const Subs = styled.div`
+  position: absolute;
+
+  display: flex;
+  top: -35px;
+  left: 41%;
+  p {
+    cursor: pointer;
+    padding: 0 0.4rem;
+  }
+`;
+const Sub = styled.p`
+  color: ${(props) => props.active && 'black'};
+`;
 const Text = styled.div`
   @media (min-width: ${(props) => props.theme.medium}) {
-    width: calc(35% + 8rem);
+    max-width: calc(35% + 4rem);
     padding-right: 2rem;
     margin-top: 2rem;
   }
