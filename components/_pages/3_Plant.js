@@ -33,7 +33,7 @@ const ExpoSection = () => {
             })}
         </Subs>
         <Wrap>
-          {bomen.slice(page * 11, 12).map((boom, index) => {
+          {bomen.slice(page * 12, (page + 1) * 12).map((boom, index) => {
             return <Boom key={boom + index} src={boom}></Boom>;
           })}
         </Wrap>
