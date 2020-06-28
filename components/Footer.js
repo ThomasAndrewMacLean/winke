@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 // import { TranslationContext } from '../utils/contexts';
-// import { T } from './index';
+import { T } from './index';
 
 const Footer = () => {
   //const translationsFromContext = useContext(TranslationContext) || [];
@@ -12,7 +12,7 @@ const Footer = () => {
     <SiteFooter>
       <span className="copyright">
         <a href="/privacy" target="_blank">
-          privacy terms
+          <T translationKey="privacy" />
         </a>
         © 2010-{new Date().getFullYear()} Winke Besard
       </span>
@@ -31,7 +31,8 @@ const Footer = () => {
           <T translationKey="telephone" />
         </a> */}
         {/* <T translationKey="email" /> */}
-        made by westerling & maclean
+
+        <T translationKey="westerlingmaclean" />
       </address>
     </SiteFooter>
   );
