@@ -32,7 +32,7 @@ const ContactSection = () => {
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ emailMailing }),
+        body: JSON.stringify({ email: emailMailing }),
       }
     );
   };
