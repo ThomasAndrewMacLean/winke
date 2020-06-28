@@ -128,7 +128,7 @@ const Column = styled.div`
   /* outline: 1px solid black; */
   width: 50%;
   &:last-of-type {
-    padding-left: 2rem;
+    padding-left: 6rem;
   }
 
   @media (max-width: ${(props) => props.theme.small}) {
@@ -177,7 +177,8 @@ const Wrap = styled.div`
 `;
 
 const FormMailingList = styled.form`
-  margin-top: 1rem;
+  /* NEEDS TO BE 9PX SO IT ALIGNS WITH THE MESSAGE TEXTAREA */
+  margin-top: 9px;
 `;
 const Address = styled.address`
   margin-bottom: 2rem;
