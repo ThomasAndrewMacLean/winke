@@ -6,12 +6,11 @@ import styled from 'styled-components';
 import marked from 'marked';
 
 const WorkSection = () => {
-  const [picSelected, setPicSelected] = useState(0);
-  const [subSelected, setSubSelected] = useState(0);
-  const [fullScreen, setFullScreen] = useState(false);
   const picsRaw = useContext(PictureContext);
   const pics = picsRaw.filter((x) => x.name && !x.home);
-  //console.log(pics[picSelected].pic[subSelected]);
+  const [picSelected, setPicSelected] = useState(pics[0].id);
+  const [subSelected, setSubSelected] = useState(0);
+  const [fullScreen, setFullScreen] = useState(false);
 
   const zoom = () => {
     setFullScreen(true);
@@ -28,26 +27,30 @@ const WorkSection = () => {
       <Caroussel />
       <Big>
         <Uitleg>
-          <h4>{pics[picSelected].name}</h4>
+          <h4>{pics.find((x) => x.id === picSelected).name}</h4>
           <div
             dangerouslySetInnerHTML={{
-              __html: marked(pics[picSelected].description),
+              __html: marked(
+                pics.find((x) => x.id === picSelected).description
+              ),
             }}
           ></div>
         </Uitleg>
-        {pics[picSelected].pic.length > 1 && (
+        {pics.find((x) => x.id === picSelected).pic.length > 1 && (
           <Subs>
-            {pics[picSelected].pic.map((s, i) => {
-              return (
-                <Sub
-                  active={subSelected === i}
-                  key={i}
-                  onClick={() => setSubSelected(i)}
-                >
-                  {i + 1}
-                </Sub>
-              );
-            })}
+            {pics
+              .find((x) => x.id === picSelected)
+              .pic.map((s, i) => {
+                return (
+                  <Sub
+                    active={subSelected === i}
+                    key={i}
+                    onClick={() => setSubSelected(i)}
+                  >
+                    {i + 1}
+                  </Sub>
+                );
+              })}
             <svg
               onClick={zoom}
               xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +71,10 @@ const WorkSection = () => {
           </Subs>
         )}
         <Pic
-          src={pics[picSelected].pic[subSelected].thumbnails.large.url}
+          src={
+            pics.find((x) => x.id === picSelected).pic[subSelected].thumbnails
+              .large.url
+          }
         ></Pic>
         <Lijst>
           <ul>
@@ -77,9 +83,28 @@ const WorkSection = () => {
               .map((p, i) => {
                 return (
                   <Li
-                    active={picSelected === i}
+                    active={picSelected === p.id}
                     onClick={() => {
-                      setPicSelected(i);
+                      setPicSelected(p.id);
+                      setSubSelected(0);
+                    }}
+                    key={i}
+                  >
+                    {p.name}
+                  </Li>
+                );
+              })}
+          </ul>
+
+          <ul>
+            {pics
+              .filter((p) => p.category === 'studies')
+              .map((p, i) => {
+                return (
+                  <Li
+                    active={picSelected === p.id}
+                    onClick={() => {
+                      setPicSelected(p.id);
                       setSubSelected(0);
                     }}
                     key={i}
