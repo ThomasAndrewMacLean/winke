@@ -72,20 +72,22 @@ const WorkSection = () => {
         ></Pic>
         <Lijst>
           <ul>
-            {pics.map((p, i) => {
-              return (
-                <Li
-                  active={picSelected === i}
-                  onClick={() => {
-                    setPicSelected(i);
-                    setSubSelected(0);
-                  }}
-                  key={i}
-                >
-                  {p.name}
-                </Li>
-              );
-            })}
+            {pics
+              .filter((p) => p.category === 'work')
+              .map((p, i) => {
+                return (
+                  <Li
+                    active={picSelected === i}
+                    onClick={() => {
+                      setPicSelected(i);
+                      setSubSelected(0);
+                    }}
+                    key={i}
+                  >
+                    {p.name}
+                  </Li>
+                );
+              })}
           </ul>
         </Lijst>
       </Big>
