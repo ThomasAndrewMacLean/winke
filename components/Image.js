@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import { getImageUrl, getImageName, getImageDescriptions } from '../utils';
 import styled from 'styled-components';
 
-const Image = ({ imageId, showName }) => {
+const Image = ({ imageId, showName, children }) => {
   const [click, clickSet] = useState(false);
   const pics = useContext(PictureContext);
   return (
     <ImageWrap showName={showName} onClick={() => clickSet(!click)}>
       <img src={getImageUrl(pics, imageId, true)}></img>
-
+      {children}
       {showName && click && (
         <ImageName>
           <h4>{getImageName(pics, imageId)}</h4>

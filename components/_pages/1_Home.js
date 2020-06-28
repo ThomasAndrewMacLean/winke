@@ -16,7 +16,11 @@ const Hero = () => {
 
   return (
     <HeroSection>
-      <Image imageId={homeImageId}></Image>
+      <Image imageId={homeImageId}>
+        <Overlay>
+          <T translationKey="heroText" />
+        </Overlay>
+      </Image>
       {/* <h2>
         <T translationKey="heroText"></T>
       </h2> */}
@@ -38,7 +42,15 @@ const Hero = () => {
     </HeroSection>
   );
 };
-
+const Overlay = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 2rem 4rem;
+  color: var(--darker-text);
+  text-shadow: 0 0 5px white;
+  background: var(--white-opaque);
+`;
 const HeroSection = styled(Section)`
 ${ImageWrap}{
     position: absolute;
