@@ -16,6 +16,11 @@ const Translation = ({ translationKey, style }) => {
   const translation = translationsFromContext.find(
     (t) => t.id === translationKey
   );
+
+  // fallback if we dont have a lable
+  if (translation && !translation.NL && !translation['NL zonder opmaak']) {
+    return null;
+  }
   return translation['NL zonder opmaak'] ? (
     translation && !showKeys ? (
       <>{translation['NL zonder opmaak']}</>

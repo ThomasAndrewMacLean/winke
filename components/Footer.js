@@ -52,6 +52,7 @@ const SiteFooter = styled.footer`
   address {
     text-align: right;
     pointer-events: all;
+    font-style: normal;
   }
   .copyright {
     font-size: 10px;

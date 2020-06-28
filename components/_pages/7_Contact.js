@@ -182,6 +182,7 @@ const FormMailingList = styled.form`
 `;
 const Address = styled.address`
   margin-bottom: 2rem;
+  font-style: normal;
 `;
 const Form = styled.form``;
 
