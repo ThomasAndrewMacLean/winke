@@ -113,7 +113,7 @@ const Boom = styled.img`
   object-position: 50% 50%;
   padding: 0.3em;
   @media (max-width: ${(props) => props.theme.medium}) {
-    width: 50%;
+    /* width: 50%; */
   }
 `;
 
