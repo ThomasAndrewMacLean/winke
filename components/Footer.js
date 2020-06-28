@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
-// import { TranslationContext } from '../utils/contexts';
+import { TranslationContext } from '../utils/contexts';
 import { T } from './index';
 
 const Footer = () => {
-  //const translationsFromContext = useContext(TranslationContext) || [];
-  // const telephoneNumber = translationsFromContext.find(
-  //   (t) => t.id === 'telephone'
-  // )['NL zonder opmaak'];
+  const translationsFromContext = useContext(TranslationContext) || [];
+  const instagramlink = translationsFromContext.find(
+    (t) => t.id === 'instagramlink'
+  )['NL zonder opmaak'];
+
+  const facebooklink = translationsFromContext.find(
+    (t) => t.id === 'facebooklink'
+  )['NL zonder opmaak'];
   return (
     <SiteFooter>
       <span className="copyright">
@@ -20,10 +24,10 @@ const Footer = () => {
       <address>
         {/* <T translationKey="address" /> */}
         <div className="socialIcons">
-          <a>
+          <a href={facebooklink} target="_blank" rel="noopener noreferrer">
             <img src="icon-facebook.svg"></img>
           </a>
-          <a>
+          <a href={instagramlink} target="_blank" rel="noopener noreferrer">
             <img src="icon-instagram.svg"></img>
           </a>
         </div>
