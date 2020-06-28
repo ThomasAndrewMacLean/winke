@@ -17,7 +17,7 @@ const ExpoSection = () => {
           <T translationKey="plant a treeText" />
         </Text>
         <Wrap>
-          {bomen.map((boom, index) => {
+          {bomen.slice(0, 9).map((boom, index) => {
             return <Boom key={boom + index} src={boom}></Boom>;
           })}
         </Wrap>
@@ -27,13 +27,17 @@ const ExpoSection = () => {
 };
 const Text = styled.div`
   @media (min-width: ${(props) => props.theme.medium}) {
-    max-width: 40%;
+    width: calc(35% + 8rem);
     padding-right: 2rem;
     margin-top: 2rem;
   }
 `;
 const TreeWrap = styled.div`
   position: relative;
+
+  display: flex;
+  margin-top: 6rem;
+
   @media (min-width: ${(props) => props.theme.medium}) {
     /* margin-left: -4rem; */
     /* background: lightblue; */
@@ -43,15 +47,18 @@ const TreeWrap = styled.div`
   p {
     line-height: 2rem;
   }
-  display: flex;
+
   @media (max-width: ${(props) => props.theme.medium}) {
     flex-direction: column;
   }
 `;
 const Wrap = styled.div`
-display:grid;
-grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(3,1fr);
+  grid-gap: 1rem;
+  grid-auto-flow: dense;
+  overflow: hidden;
   img{
     display: flex;
   padding:0;
@@ -68,9 +75,9 @@ grid-template-columns: 1fr 1fr 1fr;
   } */
 `;
 const Boom = styled.img`
-  width: 200px;
+  width: 100%;
 
-  height: 200px;
+  height: auto;
 
   object-fit: cover;
   object-position: 50% 50%;

@@ -3,6 +3,7 @@ import { Section } from '../../styles';
 import { Caroussel, PageTitle } from '../index';
 import { PictureContext } from '../../utils/contexts';
 import styled from 'styled-components';
+import marked from 'marked';
 
 const WorkSection = () => {
   const [picSelected, setPicSelected] = useState(0);
@@ -28,7 +29,11 @@ const WorkSection = () => {
       <Big>
         <Uitleg>
           <h4>{pics[picSelected].name}</h4>
-          <p>{pics[picSelected].description}</p>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: marked(pics[picSelected].description),
+            }}
+          ></div>
         </Uitleg>
         {pics[picSelected].pic.length > 1 && (
           <Subs>
