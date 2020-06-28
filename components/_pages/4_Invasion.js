@@ -35,19 +35,21 @@ const ExpoSection = () => {
       <PageTitle titleName="invasionTitle"></PageTitle>
       <TreeWrap>
         <Text>
-          {boomTypes.map((bt) => {
-            return (
-              <P
-                key={bt}
-                onClick={() => {
-                  setBoomType(bt);
-                }}
-              >
-                <T translationKey={bt} />
-              </P>
-            );
-          })}
-
+          <Switcher>
+            {boomTypes.map((bt) => {
+              return (
+                <P
+                  active={bt === boomType}
+                  key={bt}
+                  onClick={() => {
+                    setBoomType(bt);
+                  }}
+                >
+                  <T translationKey={bt} />
+                </P>
+              );
+            })}
+          </Switcher>
           <T translationKey="invasionText" />
         </Text>
         <Subs>
@@ -78,7 +80,13 @@ const ExpoSection = () => {
     </Section>
   );
 };
-const P = styled.p``;
+const Switcher = styled.div`
+  margin-bottom: 2rem;
+`;
+const P = styled.p`
+  cursor: pointer;
+  color: ${(props) => props.active && 'black'};
+`;
 const Subs = styled.div`
   position: absolute;
 
@@ -100,7 +108,7 @@ const Text = styled.div`
   @media (min-width: ${(props) => props.theme.medium}) {
     max-width: calc(35% + 4rem);
     padding-right: 2rem;
-    margin-top: 2rem;
+    margin-top: -2rem;
   }
 `;
 const TreeWrap = styled.div`
