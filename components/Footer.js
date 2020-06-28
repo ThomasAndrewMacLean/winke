@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 // import { TranslationContext } from '../utils/contexts';
-import { T } from './index';
+// import { T } from './index';
 
 const Footer = () => {
   //const translationsFromContext = useContext(TranslationContext) || [];

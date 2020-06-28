@@ -1,6 +1,6 @@
 import React from 'react';
 import { Section } from '../../styles';
-import { T, Tabs, PageTitle } from '../index';
+import { Tabs, PageTitle } from '../index';
 
 const AboutSection = () => {
   return (

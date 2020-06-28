@@ -20,7 +20,6 @@ import {
 import PropTypes from 'prop-types';
 
 const IndexPage = ({ translations, pics, projects }) => {
-  console.log(projects);
   return (
     <BomenContext.Provider value={projects}>
       <PictureContext.Provider value={pics}>

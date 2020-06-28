@@ -12,12 +12,11 @@ const Hero = () => {
   const telephoneNumber = translationsFromContext.find(
     (t) => t.id === 'telephone'
   )['NL zonder opmaak'];
-  console.log(imagesFromContext);
-  const x = imagesFromContext.find((x) => x.home).id;
-  console.log(x.id);
+  const homeImageId = imagesFromContext.find((x) => x.home).id.toString();
+
   return (
     <HeroSection>
-      <Image imageId={x}></Image>
+      <Image imageId={homeImageId}></Image>
       {/* <h2>
         <T translationKey="heroText"></T>
       </h2> */}

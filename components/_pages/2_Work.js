@@ -10,7 +10,7 @@ const WorkSection = () => {
   const [fullScreen, setFullScreen] = useState(false);
   const picsRaw = useContext(PictureContext);
   const pics = picsRaw.filter((x) => x.name && !x.home);
-  console.log(pics[picSelected].pic[subSelected]);
+  //console.log(pics[picSelected].pic[subSelected]);
 
   const zoom = () => {
     setFullScreen(true);

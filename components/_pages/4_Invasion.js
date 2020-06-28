@@ -8,7 +8,7 @@ import { getInvasion } from '../../utils';
 
 const InvasionSection = () => {
   const pics = useContext(BomenContext);
-  console.log('🌲', pics);
+  //console.log('🌲', pics);
   const bomen = getInvasion(pics);
   return (
     <Section>

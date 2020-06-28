@@ -1,28 +1,74 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Section } from '../../styles';
 import { T, PageTitle } from '../index';
 import styled from 'styled-components';
 
 const ContactSection = () => {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [message, setMessage] = useState('');
+
+  const [emailMailing, setEmailMailing] = useState('');
+
+  const sendMessage = (e) => {
+    e.preventDefault();
+    fetch('https://europe-west1-winke-281620.cloudfunctions.net/function-1', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, email, message }),
+    });
+  };
+
+  const addMailing = (e) => {
+    e.preventDefault();
+    fetch(
+      'https://europe-west1-winke-281620.cloudfunctions.net/addToMailingList',
+      {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ emailMailing }),
+      }
+    );
+  };
   return (
     <Section>
       <PageTitle titleName="contactTitle"></PageTitle>
       <T translationKey="contactText" />
       <Wrap>
         <Column>
-          <Form>
+          <Form onSubmit={sendMessage}>
             <div className="input-wrap">
               <label htmlFor="name">
                 <T translationKey="contactName" />
               </label>
-              <input required type="text" name="name" id="name" />
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                type="text"
+                name="name"
+                id="name"
+              />
             </div>
 
             <div className="input-wrap">
               <label htmlFor="email">
                 <T translationKey="contactEmail" />
               </label>
-              <input required type="email" name="email" id="email" />
+              <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                type="email"
+                name="email"
+                id="email"
+              />
             </div>
 
             <div className="input-wrap">
@@ -30,6 +76,8 @@ const ContactSection = () => {
                 <T translationKey="contactMessage" />
               </label>
               <textarea
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 required
                 name="message"
                 id="message"
@@ -54,12 +102,14 @@ const ContactSection = () => {
           </div>
 
           <T translationKey="mailinglist" />
-          <FormMailingList>
+          <FormMailingList onSubmit={addMailing}>
             <div className="input-wrap">
               <label htmlFor="emailmailing">
                 <T translationKey="mailinglistLabel" />
               </label>
               <input
+                value={emailMailing}
+                onChange={(e) => setEmailMailing(e.target.value)}
                 required
                 type="email"
                 name="emailmailing"

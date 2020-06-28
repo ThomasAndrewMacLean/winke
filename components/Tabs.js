@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { T } from './index';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Tabs = ({ tabs }) => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -11,7 +12,7 @@ const Tabs = ({ tabs }) => {
           <TabButton
             selectedTab={selectedTab === index}
             onClick={() => setSelectedTab(index)}
-            key={t.title}
+            key={index}
           >
             <T translationKey={t + 'Title'} />
           </TabButton>
@@ -36,4 +37,8 @@ const TabText = styled.div`
   margin-top: 3rem;
   padding-bottom: 10rem;
 `;
+
+Tabs.propTypes = {
+  tabs: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 export default Tabs;
