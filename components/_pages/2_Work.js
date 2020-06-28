@@ -184,6 +184,7 @@ const Modal = styled.div`
   img {
     height: 90vh;
     width: auto;
+    margin: auto;
   }
 `;
 export default WorkSection;
