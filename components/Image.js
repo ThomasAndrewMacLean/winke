@@ -29,7 +29,7 @@ const ImageName = styled.span`
   h4 {
     margin-bottom: 1rem;
   }
-  background: #ffffff80;
+  background: #ffffffdd;
   color: #333;
   text-shadow: 0px 0px 3px #ffffff;
   position: absolute;

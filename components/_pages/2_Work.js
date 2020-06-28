@@ -100,7 +100,7 @@ const Subs = styled.div`
 
   display: flex;
   top: -35px;
-  left: 40%;
+  left: 41%;
 
   p {
     cursor: pointer;
@@ -136,7 +136,7 @@ const Uitleg = styled.div`
   }
 `;
 const Pic = styled.img`
-  outline: 1px solid #333;
+  //outline: 1px solid #333;
   height: 50vh;
   width: 300px;
   object-fit: cover;
