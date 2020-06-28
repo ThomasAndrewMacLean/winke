@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Section } from '../../styles';
 import { T, PageTitle, Modal } from '../index';
 import { BomenContext } from '../../utils/contexts';
@@ -7,14 +7,20 @@ import styled from 'styled-components';
 import { getBushranger, getTermietenberg, getMouflon } from '../../utils';
 
 const NUMBER_OF_TREES = 8;
-
+const boomTypes = ['bushRanger', 'termiet', 'mouflon'];
 const ExpoSection = () => {
   const [page, setPage] = useState(0);
   const [bigTree, setBigTree] = useState('');
-
+  const [bomen, setBomen] = useState([]);
+  const [boomType, setBoomType] = useState('bushRanger');
   const pics = useContext(BomenContext);
-  const bomen = getBushranger(pics);
+  //const bomen = getBushranger(pics);
 
+  useEffect(() => {
+    if (boomType === 'bushRanger') setBomen(getBushranger(pics));
+    if (boomType === 'termiet') setBomen(getTermietenberg(pics));
+    if (boomType === 'mouflon') setBomen(getMouflon(pics));
+  }, [boomType]);
   const maxPage = Math.ceil(bomen.length / NUMBER_OF_TREES);
   return (
     <Section>
@@ -29,6 +35,19 @@ const ExpoSection = () => {
       <PageTitle titleName="invasionTitle"></PageTitle>
       <TreeWrap>
         <Text>
+          {boomTypes.map((bt) => {
+            return (
+              <P
+                key={bt}
+                onClick={() => {
+                  setBoomType(bt);
+                }}
+              >
+                <T translationKey={bt} />
+              </P>
+            );
+          })}
+
           <T translationKey="invasionText" />
         </Text>
         <Subs>
@@ -59,6 +78,7 @@ const ExpoSection = () => {
     </Section>
   );
 };
+const P = styled.p``;
 const Subs = styled.div`
   position: absolute;
 
