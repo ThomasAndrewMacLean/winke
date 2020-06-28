@@ -25,7 +25,7 @@ const ContactSection = () => {
   const addMailing = (e) => {
     e.preventDefault();
     fetch(
-      'https://europe-west1-winke-281620.cloudfunctions.net/addToMailingList',
+      'https://us-central1-winke-281620.cloudfunctions.net/addToMailingList',
       {
         method: 'POST',
         headers: {
