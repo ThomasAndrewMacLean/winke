@@ -56,73 +56,74 @@ const Overlay = styled.div`
   text-align: right;
 `;
 const HeroSection = styled(Section)`
-${ImageWrap}{
+  ${ImageWrap} {
     position: absolute;
     right: calc(-50vw + 300px + 4rem);
 
     @media (max-width: ${(props) => props.theme.medium}) {
-      left:0;
-      right:0;
-    } 
-}
+      left: 0;
+      right: 0;
+    }
+  }
   display: flex;
   align-items: center;
   padding-top: 0;
-  position:relative;
+  position: relative;
   p {
     line-height: 2rem;
     font-size: 1.3rem;
     font-weight: 200;
     color: var(--grey-blue);
   }
-img{
-  max-height:60vh;
-  width: calc(50vw + 300px - 4rem);
-  object-fit: cover;
-  @media (max-width: ${(props) => props.theme.medium}) {
-    width:100%;
-    } 
- 
-}
+  img {
+    max-height: 60vh;
+    width: calc(50vw + 300px - 4rem);
+    object-fit: cover;
+    @media (max-width: ${(props) => props.theme.medium}) {
+      width: 100%;
+    }
+  }
   ${ImageWrap} {
     margin-left: auto;
-    /* @media (max-width: ${(props) => props.theme.medium}) {
-      width: 175%;
-    } */
+    @media (max-width: ${(props) => props.theme.small}) {
+      width: 100vw;
+      left: -10vw;
+      margin-left: 0 !important;
+    }
 
     img {
-    background: #666732;
-    /* animation: zoom 15s infinite; */
-  }
-  }
-
-    address{
-      display: none;
+      background: #666732;
+      /* animation: zoom 15s infinite; */
     }
-    @media (max-width: ${(props) => props.theme.medium}) {
-      address{
-        .socialIcons{
-          img{
-            margin-right:1rem;
-            margin-bottom:1rem;
-            width: 18px;
-            height: 18px;
-            opacity: 0.7;
-          }
+  }
 
-        }
-        position: absolute;
-        display: block;
-        bottom: 4rem;
-        a{
-          font-weight: 400;
-        }
-        a,p{
-          line-height: 1.5rem;
-        font-size: 14px !important;
+  address {
+    display: none;
+  }
+  @media (max-width: ${(props) => props.theme.medium}) {
+    address {
+      .socialIcons {
+        img {
+          margin-right: 1rem;
+          margin-bottom: 1rem;
+          width: 18px;
+          height: 18px;
+          opacity: 0.7;
         }
       }
-    } 
+      position: absolute;
+      display: block;
+      bottom: 4rem;
+      a {
+        font-weight: 400;
+      }
+      a,
+      p {
+        line-height: 1.5rem;
+        font-size: 14px !important;
+      }
+    }
+  }
 `;
 
 export default Hero;

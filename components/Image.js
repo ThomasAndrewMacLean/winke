@@ -10,7 +10,7 @@ const Image = ({ imageId, showName, children }) => {
   const pics = useContext(PictureContext);
   return (
     <ImageWrap showName={showName} onClick={() => clickSet(!click)}>
-      <img src={getImageUrl(pics, imageId, true)} loading="lazy"></img>
+      <img src={getImageUrl(pics, imageId, true)}></img>
       {children}
       {showName && click && (
         <ImageName>
@@ -30,7 +30,6 @@ export const ImageWrap = styled.div`
   position: relative;
   cursor: ${(props) => props.showName && 'help'};
   overflow: hidden;
-
 `;
 const ImageName = styled.span`
   h4 {
