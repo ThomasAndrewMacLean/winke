@@ -54,7 +54,7 @@ const Layout = ({ children }) => {
             <img src="icon-instagram.svg"></img>
           </a>
 
-          <T translationKey="title" />
+          <T translationKey="titleMobile" />
         </TitleMobile>
       </Header>
       <Main>
@@ -87,16 +87,19 @@ const Main = styled.main`
 const TitleMobile = styled.div`
   display: flex;
   a {
-    margin-right: 1rem;
+    margin-right: 3rem;
     transform: rotate(90deg);
     opacity: 0.7;
     height: 40px;
     width: 40px;
   }
   color: var(--grey-blue);
-  h1 {
+  h1,
+  h2 {
     font-weight: 100;
+    font-size: 28px;
   }
+
   right: 0;
   top: 0;
   position: fixed;
