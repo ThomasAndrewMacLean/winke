@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Modal = ({ picSrc, title, close }) => {
   const ref = useRef(null);
@@ -39,3 +40,9 @@ const ModalBack = styled.div`
     opacity: 0.8;
   }
 `;
+
+Modal.propTypes = {
+  picSrc: PropTypes.object.isRequired,
+  title: PropTypes.string,
+  close: PropTypes.func.isRequired,
+};

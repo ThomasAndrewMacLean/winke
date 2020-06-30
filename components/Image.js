@@ -61,6 +61,7 @@ const ImageName = styled.span`
 Image.propTypes = {
   imageId: PropTypes.string.isRequired,
   showName: PropTypes.bool,
+  children: PropTypes.node,
 };
 
 export default Image;
