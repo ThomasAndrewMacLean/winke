@@ -43,7 +43,7 @@ const Layout = ({ children }) => {
       <Header>
         <MobileMenu />
         <Menu></Menu>
-        <Title areAtTop={areAtTop} href="#home">
+        <Title areAtTop={areAtTop} href="#home"  target="_self">
           <T translationKey="title" />
         </Title>
         <TitleMobile areAtTop={areAtTop}>
