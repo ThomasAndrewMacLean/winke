@@ -161,7 +161,7 @@ const Wrap = styled.div`
     font-family: inherit;
     font-size: inherit;
     border: none;
-    border: 1px solid var(--light);
+    border-bottom: 1px solid var(--light);
     line-height: 2rem;
     margin-bottom: 1rem;
     resize: none;
@@ -177,8 +177,8 @@ const Wrap = styled.div`
 `;
 
 const FormMailingList = styled.form`
-  /* NEEDS TO BE 9PX SO IT ALIGNS WITH THE MESSAGE TEXTAREA */
-  margin-top: 9px;
+  /* NEEDS TO BE 7PX SO IT ALIGNS WITH THE MESSAGE TEXTAREA */
+  margin-top: 7px;
 `;
 const Address = styled.address`
   margin-bottom: 2rem;

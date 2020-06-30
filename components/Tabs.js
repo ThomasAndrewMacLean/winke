@@ -36,6 +36,11 @@ const TabButton = styled.button`
 const TabText = styled.div`
   margin-top: 3rem;
   padding-bottom: 10rem;
+
+  ul,
+  ol {
+    margin-top: 3rem;
+  }
 `;
 
 Tabs.propTypes = {
