@@ -51,7 +51,10 @@ const ExpoSection = () => {
               );
             })}
           </Switcher>
-          <T translationKey="invasionText" />
+
+          {boomType === 'bushRanger' && <T translationKey="bushRangerText" />}
+          {boomType === 'termiet' && <T translationKey="termietText" />}
+          {boomType === 'mouflon' && <T translationKey="mouflonText" />}
         </Text>
         <Subs>
           {Array(maxPage)
