@@ -1,5 +1,6 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
+import { TranslationContext } from '../utils/contexts';
 
 import { Menu, T, Footer, MobileMenu } from './index';
 import styled from 'styled-components';
@@ -8,6 +9,14 @@ import { useStore } from '../store';
 const Layout = ({ children }) => {
   const ref = useRef();
   const { setAreAtTop, areAtTop } = useStore();
+  const translationsFromContext = useContext(TranslationContext) || [];
+  const instagramlink = translationsFromContext.find(
+    (t) => t.id === 'instagramlink'
+  )['NL zonder opmaak'];
+
+  const facebooklink = translationsFromContext.find(
+    (t) => t.id === 'facebooklink'
+  )['NL zonder opmaak'];
   useEffect(() => {
     if (!('IntersectionObserver' in window)) {
       return;
@@ -38,10 +47,10 @@ const Layout = ({ children }) => {
           <T translationKey="title" />
         </Title>
         <TitleMobile areAtTop={areAtTop}>
-          <a>
+          <a href={facebooklink} target="_blank" rel="noopener noreferrer">
             <img src="icon-facebook.svg"></img>
           </a>
-          <a>
+          <a href={instagramlink} target="_blank" rel="noopener noreferrer">
             <img src="icon-instagram.svg"></img>
           </a>
 
@@ -119,7 +128,7 @@ const Title = styled.a`
     pointer-events: none;
     position: absolute;
     right: 10vw;
-   // background: var(--white-opaque);
+    // background: var(--white-opaque);
     padding-right: 0;
   }
   h1 {

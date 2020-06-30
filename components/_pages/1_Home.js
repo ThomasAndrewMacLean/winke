@@ -14,6 +14,13 @@ const Hero = () => {
   )['NL zonder opmaak'];
   const homeImageId = imagesFromContext.find((x) => x.home).id.toString();
 
+  const instagramlink = translationsFromContext.find(
+    (t) => t.id === 'instagramlink'
+  )['NL zonder opmaak'];
+
+  const facebooklink = translationsFromContext.find(
+    (t) => t.id === 'facebooklink'
+  )['NL zonder opmaak'];
   return (
     <HeroSection>
       <Image imageId={homeImageId}>
@@ -26,10 +33,10 @@ const Hero = () => {
       </h2> */}
       <address>
         <div className="socialIcons">
-          <a>
+          <a href={facebooklink} target="_blank" rel="noopener noreferrer">
             <img src="icon-facebook.svg"></img>
           </a>
-          <a>
+          <a href={instagramlink} target="_blank" rel="noopener noreferrer">
             <img src="icon-instagram.svg"></img>
           </a>
         </div>

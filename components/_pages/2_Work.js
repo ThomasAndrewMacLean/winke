@@ -15,8 +15,7 @@ const WorkSection = () => {
   const [fullScreen, setFullScreen] = useState(false);
   useEffect(() => {
     pics.forEach((p) => {
-      console.log(p);
-      p.pic.forEach((z) => {
+       p.pic.forEach((z) => {
         const i = new Image();
         i.src = z.thumbnails.small.url;
       });
@@ -32,12 +31,10 @@ const WorkSection = () => {
 
   useEffect(() => {
     if (ref && ref.current) {
-      console.log(ref.current.src);
-      ref.current.src = pics.find((x) => x.id === picSelected).pic[
+       ref.current.src = pics.find((x) => x.id === picSelected).pic[
         subSelected
       ].thumbnails.large.url;
-      console.log(ref.current.src);
-    }
+     }
   }, [picSelected, subSelected]);
   const zoom = () => {
     setFullScreen(true);

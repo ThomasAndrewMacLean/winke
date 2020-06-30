@@ -13,7 +13,6 @@ export const getImageUrl = (context, id, full) => {
 };
 
 export const getBomen = (context) => {
-  console.log(context);
   return context
     .find((p) => p.id == 'bomen')
 

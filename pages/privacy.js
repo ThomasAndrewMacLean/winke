@@ -29,8 +29,7 @@ const Page = styled.div`
 
 export const getStaticProps = async () => {
   const data = await getDataFromAirtable();
-  console.log(data);
-  return { props: data };
+   return { props: data };
 };
 
 PrivacyPage.propTypes = {

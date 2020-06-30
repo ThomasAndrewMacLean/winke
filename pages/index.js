@@ -63,8 +63,7 @@ const IndexPage = ({ translations, pics, projects }) => {
 
 export const getStaticProps = async () => {
   const data = await getDataFromAirtable();
-  console.log(data);
-  return { props: data };
+   return { props: data };
 };
 
 IndexPage.propTypes = {

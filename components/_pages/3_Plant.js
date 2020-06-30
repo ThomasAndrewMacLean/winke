@@ -13,8 +13,7 @@ const ExpoSection = () => {
   const pics = useContext(BomenContext);
   const bomen = getBomen(pics);
   //setMaxPage(bomen.length / NUMBER_OF_TREES);
-  console.log(bomen);
-  const maxPage = Math.ceil(bomen.length / NUMBER_OF_TREES);
+   const maxPage = Math.ceil(bomen.length / NUMBER_OF_TREES);
   return (
     <Section>
       {bigTree && (
