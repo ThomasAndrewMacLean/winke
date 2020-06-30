@@ -13,12 +13,13 @@ export const getImageUrl = (context, id, full) => {
 };
 
 export const getBomen = (context) => {
+  console.log(context);
   return context
     .find((p) => p.id == 'bomen')
 
     .pic.filter((x) => x.thumbnails)
     .map((x) => {
-      return { small: x.thumbnails.large.url, large: x.url };
+      return { small: x.thumbnails.large.url, large: x.url, name: x.filename };
     });
 };
 

@@ -19,7 +19,9 @@ const WorkSection = () => {
     <Section>
       {fullScreen && (
         <Modal onClick={() => setFullScreen(false)}>
-          <Pic src={pics[picSelected].pic[subSelected].url}></Pic>
+          <Pic
+            src={pics.find((x) => x.id === picSelected).pic[subSelected].url}
+          ></Pic>
         </Modal>
       )}
       <PageTitle titleName="workTitle"></PageTitle>

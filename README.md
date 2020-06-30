@@ -23,6 +23,4 @@ smooth scroll safari:
 https://dev.to/jonaskuske/comment/8n5j
 
 TODO:
-
-x- hero image to the right of the screen
-x- contact: more spacing between two columns => align send button to bottom message
+- 
