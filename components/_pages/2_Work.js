@@ -22,6 +22,23 @@ const WorkSection = () => {
           <Pic
             src={pics.find((x) => x.id === picSelected).pic[subSelected].url}
           ></Pic>
+          <SelectorWrap>
+            {new Array(pics.find((x) => x.id === picSelected).pic.length)
+              .fill(0)
+              .map((_, i) => {
+                return (
+                  <Selector
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      e.preventDefault();
+                      setSubSelected(i);
+                    }}
+                    key={i}
+                    active={i === subSelected}
+                  ></Selector>
+                );
+              })}
+          </SelectorWrap>
         </Modal>
       )}
       <PageTitle titleName="workTitle"></PageTitle>
@@ -121,6 +138,22 @@ const WorkSection = () => {
     </Section>
   );
 };
+const SelectorWrap = styled.div`
+  position: absolute;
+  bottom: 2vh;
+  display: flex;
+`;
+const Selector = styled.span`
+  width: 15px;
+  height: 15px;
+  background: ${(props) => (props.active ? '#666' : '#888')};
+  border: ${(props) => props.active && '2px solid #333'};
+
+  border-radius: 10px;
+  display: block;
+  cursor: ${(props) => !props.active && 'pointer'};
+  margin: 0 1rem;
+`;
 const Li = styled.li`
   font-weight: ${(props) => props.active && 'bold'};
   color: ${(props) => props.active && 'black'};
