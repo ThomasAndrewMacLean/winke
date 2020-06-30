@@ -10,7 +10,7 @@ const Image = ({ imageId, showName, children }) => {
   const pics = useContext(PictureContext);
   return (
     <ImageWrap showName={showName} onClick={() => clickSet(!click)}>
-      <img src={getImageUrl(pics, imageId, true)}></img>
+      <img src={getImageUrl(pics, imageId, true)} loading="lazy"></img>
       {children}
       {showName && click && (
         <ImageName>

@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
-const Modal = ({ picSrc, close }) => {
+const Modal = ({ picSrc, title, close }) => {
+  const ref = useRef(null);
+  useEffect(() => {
+    ref.current.src = picSrc.large;
+  }, [ref]);
   return (
     <ModalBack onClick={close}>
-      <img src={picSrc}></img>
+      <figure>
+        <img ref={ref} src={picSrc.small}></img>
+        {title && <figcaption>{(title || '').split('.')[0]}</figcaption>}
+      </figure>
     </ModalBack>
   );
 };
@@ -26,5 +33,9 @@ const ModalBack = styled.div`
     height: 90vh;
     width: auto;
     margin: auto;
+  }
+  figcaption {
+    color: white;
+    opacity: 0.8;
   }
 `;

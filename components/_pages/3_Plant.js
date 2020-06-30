@@ -8,7 +8,7 @@ import { getBomen } from '../../utils';
 const NUMBER_OF_TREES = 12;
 const ExpoSection = () => {
   const [page, setPage] = useState(0);
-  const [bigTree, setBigTree] = useState('');
+  const [bigTree, setBigTree] = useState(null);
 
   const pics = useContext(BomenContext);
   const bomen = getBomen(pics);
@@ -21,8 +21,9 @@ const ExpoSection = () => {
         <Modal
           picSrc={bigTree}
           close={() => {
-            setBigTree('');
+            setBigTree(null);
           }}
+          title={bigTree.name}
         ></Modal>
       )}
       <PageTitle titleName="plant a treeTitle"></PageTitle>
@@ -47,9 +48,10 @@ const ExpoSection = () => {
             .map((boom, index) => {
               return (
                 <Boom
-                  onClick={() => setBigTree(boom.large)}
+                  onClick={() => setBigTree(boom)}
                   key={boom.small + index}
                   src={boom.small}
+                  loading="lazy"
                 ></Boom>
               );
             })}

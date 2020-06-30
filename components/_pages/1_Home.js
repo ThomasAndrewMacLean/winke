@@ -50,6 +50,10 @@ const Overlay = styled.div`
   color: var(--darker-text);
   text-shadow: 0 0 5px white;
   background: var(--white-opaque);
+  font-size: 1.2rem;
+  width: 100%;
+  font-weight: 100;
+  text-align: right;
 `;
 const HeroSection = styled(Section)`
 ${ImageWrap}{

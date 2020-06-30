@@ -28,7 +28,7 @@ export const getBushranger = (context) => {
     .find((p) => p.id == 'bushranger')
     .pic.filter((x) => x.thumbnails)
     .map((x) => {
-      return { small: x.thumbnails.large.url, large: x.url };
+      return { small: x.thumbnails.large.url, large: x.url, name: x.filename };
     });
 };
 
@@ -37,7 +37,7 @@ export const getMouflon = (context) => {
     .find((p) => p.id == 'mouflon')
     .pic.filter((x) => x.thumbnails)
     .map((x) => {
-      return { small: x.thumbnails.large.url, large: x.url };
+      return { small: x.thumbnails.large.url, large: x.url, name: x.filename };
     });
 };
 
@@ -46,7 +46,7 @@ export const getTermietenberg = (context) => {
     .find((p) => p.id == 'termietenberg')
     .pic.filter((x) => x.thumbnails)
     .map((x) => {
-      return { small: x.thumbnails.large.url, large: x.url };
+      return { small: x.thumbnails.large.url, large: x.url, name: x.filename };
     });
 };
 

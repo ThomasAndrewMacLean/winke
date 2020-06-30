@@ -10,7 +10,7 @@ const NUMBER_OF_TREES = 8;
 const boomTypes = ['bushRanger', 'termiet', 'mouflon'];
 const ExpoSection = () => {
   const [page, setPage] = useState(0);
-  const [bigTree, setBigTree] = useState('');
+  const [bigTree, setBigTree] = useState(null);
   const [bomen, setBomen] = useState([]);
   const [boomType, setBoomType] = useState('bushRanger');
   const pics = useContext(BomenContext);
@@ -28,8 +28,9 @@ const ExpoSection = () => {
         <Modal
           picSrc={bigTree}
           close={() => {
-            setBigTree('');
+            setBigTree(null);
           }}
+          title={bigTree.name}
         ></Modal>
       )}
       <PageTitle titleName="invasionTitle"></PageTitle>
@@ -69,9 +70,10 @@ const ExpoSection = () => {
             .map((boom, index) => {
               return (
                 <Boom
-                  onClick={() => setBigTree(boom.large)}
+                  onClick={() => setBigTree(boom)}
                   key={boom.small + index}
                   src={boom.small}
+                  loading="lazy"
                 ></Boom>
               );
             })}

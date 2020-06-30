@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import { Section } from '../../styles';
 import { Caroussel, PageTitle } from '../index';
 import { PictureContext } from '../../utils/contexts';
@@ -6,12 +6,39 @@ import styled from 'styled-components';
 import marked from 'marked';
 
 const WorkSection = () => {
+  const refModal = useRef(null);
+  const ref = useRef(null);
   const picsRaw = useContext(PictureContext);
   const pics = picsRaw.filter((x) => x.name && !x.home);
   const [picSelected, setPicSelected] = useState(pics[0].id);
   const [subSelected, setSubSelected] = useState(0);
   const [fullScreen, setFullScreen] = useState(false);
+  useEffect(() => {
+    pics.forEach((p) => {
+      console.log(p);
+      p.pic.forEach((z) => {
+        const i = new Image();
+        i.src = z.thumbnails.small.url;
+      });
+    });
+  });
+  useEffect(() => {
+    if (refModal && refModal.current) {
+      refModal.current.src = pics.find((x) => x.id === picSelected).pic[
+        subSelected
+      ].url;
+    }
+  }, [fullScreen, subSelected]);
 
+  useEffect(() => {
+    if (ref && ref.current) {
+      console.log(ref.current.src);
+      ref.current.src = pics.find((x) => x.id === picSelected).pic[
+        subSelected
+      ].thumbnails.large.url;
+      console.log(ref.current.src);
+    }
+  }, [picSelected, subSelected]);
   const zoom = () => {
     setFullScreen(true);
   };
@@ -20,7 +47,11 @@ const WorkSection = () => {
       {fullScreen && (
         <Modal onClick={() => setFullScreen(false)}>
           <Pic
-            src={pics.find((x) => x.id === picSelected).pic[subSelected].url}
+            ref={refModal}
+            src={
+              pics.find((x) => x.id === picSelected).pic[subSelected].thumbnails
+                .large.url
+            }
           ></Pic>
           <SelectorWrap>
             {new Array(pics.find((x) => x.id === picSelected).pic.length)
@@ -90,10 +121,12 @@ const WorkSection = () => {
           </Subs>
         )}
         <Pic
+          ref={ref}
           src={
             pics.find((x) => x.id === picSelected).pic[subSelected].thumbnails
-              .large.url
+              .small.url
           }
+          loading="lazy"
         ></Pic>
         <Lijst>
           <ul>
