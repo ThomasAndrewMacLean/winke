@@ -30,22 +30,7 @@ export const ImageWrap = styled.div`
   position: relative;
   cursor: ${(props) => props.showName && 'help'};
   overflow: hidden;
-  img {
-    background: #666732;
-    /* animation: zoom 15s infinite; */
-  }
 
-  /* @keyframes zoom {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1);
-    }
-  } */
 `;
 const ImageName = styled.span`
   h4 {

@@ -89,6 +89,11 @@ img{
     /* @media (max-width: ${(props) => props.theme.medium}) {
       width: 175%;
     } */
+
+    img {
+    background: #666732;
+    /* animation: zoom 15s infinite; */
+  }
   }
 
     address{
