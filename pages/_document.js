@@ -109,7 +109,7 @@ export default class MyDocument extends Document {
           <script src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js"></script>
           <script src="https://unpkg.com/smoothscroll-anchor-polyfill"></script>
           <link
-            href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;400&family=Red+Hat+Display:wght@400;700&family=Thasadith:wght@400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;400&display=swap"
             rel="stylesheet"
           />
         </Head>

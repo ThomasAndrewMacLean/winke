@@ -27,6 +27,7 @@ const IndexPage = ({ translations, pics, projects }) => {
           <Layout>
             <Head>
               <title>Winke</title>
+              <base target="_blank"></base>
               <meta
                 name="viewport"
                 content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
@@ -63,7 +64,7 @@ const IndexPage = ({ translations, pics, projects }) => {
 
 export const getStaticProps = async () => {
   const data = await getDataFromAirtable();
-   return { props: data };
+  return { props: data };
 };
 
 IndexPage.propTypes = {
