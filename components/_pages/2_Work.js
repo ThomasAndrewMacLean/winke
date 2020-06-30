@@ -127,6 +127,7 @@ const Li = styled.li`
 `;
 const Sub = styled.p`
   color: ${(props) => props.active && 'black'};
+  font-weight: ${(props) => props.active && 'bold'};
   /* font-weight: ${(props) => props.active && 'bold'}; */
 `;
 const Subs = styled.div`

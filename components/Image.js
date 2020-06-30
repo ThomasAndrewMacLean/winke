@@ -3,6 +3,7 @@ import { PictureContext } from '../utils/contexts';
 import PropTypes from 'prop-types';
 import { getImageUrl, getImageName, getImageDescriptions } from '../utils';
 import styled from 'styled-components';
+import marked from 'marked';
 
 const Image = ({ imageId, showName, children }) => {
   const [click, clickSet] = useState(false);
@@ -14,7 +15,11 @@ const Image = ({ imageId, showName, children }) => {
       {showName && click && (
         <ImageName>
           <h4>{getImageName(pics, imageId)}</h4>
-          <span>{getImageDescriptions(pics, imageId)}</span>
+          <span
+            dangerouslySetInnerHTML={{
+              __html: marked(getImageDescriptions(pics, imageId)),
+            }}
+          ></span>
         </ImageName>
       )}
     </ImageWrap>
@@ -40,7 +45,8 @@ const ImageName = styled.span`
   opacity: 0;
   display: flex;
   flex-direction: column;
-  max-width: 300px;
+
+  padding: 5rem;
   justify-content: center;
   align-items: center;
   opacity: 1;
