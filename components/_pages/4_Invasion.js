@@ -148,7 +148,7 @@ display: grid;
   grid-auto-flow: dense;
   overflow: hidden;
   div{
-    background: red;
+   
     position: relative;
   }
   img{
