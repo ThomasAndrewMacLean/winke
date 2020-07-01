@@ -72,12 +72,13 @@ const ExpoSection = () => {
             .slice(page * NUMBER_OF_TREES, (page + 1) * NUMBER_OF_TREES)
             .map((boom, index) => {
               return (
-                <Boom
-                  onClick={() => setBigTree(boom)}
-                  key={boom.small + index}
-                  src={boom.small}
-                  loading="lazy"
-                ></Boom>
+                <div key={boom.small + index}>
+                  <Boom
+                    onClick={() => setBigTree(boom)}
+                    src={boom.small}
+                    loading="lazy"
+                  ></Boom>
+                </div>
               );
             })}
         </Wrap>
@@ -138,14 +139,23 @@ const TreeWrap = styled.div`
 `;
 const Wrap = styled.div`
 display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(4, minmax(100px, 1fr));
+  @media (max-width: ${(props) => props.theme.medium}) {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
   grid-template-rows: repeat(3,1fr);
   grid-gap: 1rem;
   grid-auto-flow: dense;
   overflow: hidden;
+  div{
+    background: red;
+    position: relative;
+  }
   img{
     display: flex;
   padding:0;
+  height:100%;
+  object-fit:cover;
 }
 
   gap: 10px ; 

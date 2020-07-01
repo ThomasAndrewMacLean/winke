@@ -13,7 +13,7 @@ const ExpoSection = () => {
   const pics = useContext(BomenContext);
   const bomen = getBomen(pics);
   //setMaxPage(bomen.length / NUMBER_OF_TREES);
-   const maxPage = Math.ceil(bomen.length / NUMBER_OF_TREES);
+  const maxPage = Math.ceil(bomen.length / NUMBER_OF_TREES);
   return (
     <Section>
       {bigTree && (
@@ -105,7 +105,10 @@ const TreeWrap = styled.div`
 `;
 const Wrap = styled.div`
 display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(4, minmax(100px, 1fr));
+  @media (max-width: ${(props) => props.theme.medium}) {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
   grid-template-rows: repeat(3,1fr);
   grid-gap: 1rem;
   grid-auto-flow: dense;
