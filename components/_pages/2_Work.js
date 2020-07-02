@@ -98,7 +98,7 @@ const WorkSection = () => {
                   </Sub>
                 );
               })}
-            <svg
+            {/* <svg
               onClick={zoom}
               xmlns="http://www.w3.org/2000/svg"
               width="14"
@@ -114,10 +114,11 @@ const WorkSection = () => {
               <polyline points="9 21 3 21 3 15"></polyline>
               <line x1="21" y1="3" x2="14" y2="10"></line>
               <line x1="3" y1="21" x2="10" y2="14"></line>
-            </svg>
+            </svg> */}
           </Subs>
         )}
         <Pic
+          onClick={zoom}
           ref={ref}
           src={
             pics.find((x) => x.id === picSelected).pic[subSelected].thumbnails
