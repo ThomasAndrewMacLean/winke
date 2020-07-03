@@ -112,7 +112,7 @@ display: grid;
   grid-template-rows: repeat(3,1fr);
   grid-gap: 1rem;
   grid-auto-flow: dense;
-  overflow: hidden;
+  //overflow: hidden;
   img{
     display: flex;
   padding:0;
@@ -136,6 +136,11 @@ const Boom = styled.img`
   object-fit: cover;
   object-position: 50% 50%;
   padding: 0.3em;
+  cursor: pointer;
+  transition: transform 200ms ease-out;
+  /* &:hover {
+    transform: scale(1.05);
+  } */
   @media (max-width: ${(props) => props.theme.medium}) {
     /* width: 50%; */
   }

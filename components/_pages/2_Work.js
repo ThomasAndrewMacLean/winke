@@ -43,14 +43,39 @@ const WorkSection = () => {
     <Section>
       {fullScreen && (
         <Modal onClick={() => setFullScreen(false)}>
-          <Pic
-            ref={refModal}
-            src={
-              pics.find((x) => x.id === picSelected).pic[subSelected].thumbnails
-                .large.url
-            }
-          ></Pic>
-          <SelectorWrap>
+          <div style={{ position: 'relative' }}>
+            {subSelected !== 0 && (
+              <PreviousButton
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setSubSelected(subSelected - 1);
+                }}
+              >
+                ←
+              </PreviousButton>
+            )}
+            {subSelected !==
+              pics.find((x) => x.id === picSelected).pic.length - 1 && (
+              <NextButton
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setSubSelected(subSelected + 1);
+                }}
+              >
+                →
+              </NextButton>
+            )}
+            <Pic
+              ref={refModal}
+              src={
+                pics.find((x) => x.id === picSelected).pic[subSelected]
+                  .thumbnails.large.url
+              }
+            ></Pic>
+          </div>
+          {/* <SelectorWrap>
             {new Array(pics.find((x) => x.id === picSelected).pic.length)
               .fill(0)
               .map((_, i) => {
@@ -66,7 +91,7 @@ const WorkSection = () => {
                   ></Selector>
                 );
               })}
-          </SelectorWrap>
+          </SelectorWrap> */}
         </Modal>
       )}
       <PageTitle titleName="workTitle"></PageTitle>
@@ -169,22 +194,50 @@ const WorkSection = () => {
     </Section>
   );
 };
-const SelectorWrap = styled.div`
+const PreviousButton = styled.button`
+  z-index: 9;
+  color: white;
   position: absolute;
-  bottom: 2vh;
-  display: flex;
+  background: none;
+  left: -35px;
+  top: 0;
+  height: 100%;
+  width: 50px;
+  cursor: pointer;
+  outline: none;
+  border: none;
 `;
-const Selector = styled.span`
-  width: 15px;
-  height: 15px;
-  background: ${(props) => (props.active ? '#666' : '#888')};
-  border: ${(props) => props.active && '2px solid #333'};
 
-  border-radius: 10px;
-  display: block;
-  cursor: ${(props) => !props.active && 'pointer'};
-  margin: 0 1rem;
+const NextButton = styled.button`
+  z-index: 9;
+  color: white;
+  position: absolute;
+  background: none;
+  right: -35px;
+  top: 0;
+  height: 100%;
+  outline: none;
+  width: 50px;
+  cursor: pointer;
+
+  border: none;
 `;
+// const SelectorWrap = styled.div`
+//   position: absolute;
+//   bottom: 2vh;
+//   display: flex;
+// `;
+// const Selector = styled.span`
+//   width: 15px;
+//   height: 15px;
+//   background: ${(props) => (props.active ? '#666' : '#888')};
+//   border: ${(props) => props.active && '2px solid #333'};
+
+//   border-radius: 10px;
+//   display: block;
+//   cursor: ${(props) => !props.active && 'pointer'};
+//   margin: 0 1rem;
+// `;
 const Li = styled.li`
   font-weight: ${(props) => props.active && 'bold'};
   color: ${(props) => props.active && 'black'};

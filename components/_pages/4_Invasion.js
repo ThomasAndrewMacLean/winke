@@ -170,7 +170,7 @@ display: grid;
 `;
 const Boom = styled.img`
   width: 100%;
-
+  cursor: pointer;
   height: auto;
 
   object-fit: cover;
