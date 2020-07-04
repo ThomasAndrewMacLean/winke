@@ -110,7 +110,33 @@ const WorkSection = () => {
         </Uitleg>
         {pics.find((x) => x.id === picSelected).pic.length > 1 && (
           <Subs>
-            {pics
+            {subSelected !== 0 && (
+              <PreviousButton
+                style={{ color: 'black' }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setSubSelected(subSelected - 1);
+                }}
+              >
+                ←
+              </PreviousButton>
+            )}
+
+            {subSelected !==
+              pics.find((x) => x.id === picSelected).pic.length - 1 && (
+              <NextButton
+                style={{ color: 'black' }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setSubSelected(subSelected + 1);
+                }}
+              >
+                →
+              </NextButton>
+            )}
+            {/* {pics
               .find((x) => x.id === picSelected)
               .pic.map((s, i) => {
                 return (
@@ -122,7 +148,7 @@ const WorkSection = () => {
                     {i + 1}
                   </Sub>
                 );
-              })}
+              })} */}
             {/* <svg
               onClick={zoom}
               xmlns="http://www.w3.org/2000/svg"
@@ -252,8 +278,26 @@ const Subs = styled.div`
 
   display: flex;
   top: -35px;
-  left: 41%;
+  // left: 41%;
+  width: 30%;
+  object-fit: cover;
+  margin: 0 4rem;
+  margin-left: calc(35% + 4rem);
 
+  ${NextButton} {
+    right: 0;
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  ${PreviousButton} {
+    left: 0;
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
   p {
     cursor: pointer;
     padding: 0 0.4rem;
@@ -294,6 +338,7 @@ const Pic = styled.img`
   object-fit: cover;
   margin: 0 4rem;
   margin-left: calc(35% + 4rem);
+  cursor: pointer;
 `;
 const Lijst = styled.div`
   /*  THIS IS TO HAVE IT NICELY NEXT TO THE PICTURE */
