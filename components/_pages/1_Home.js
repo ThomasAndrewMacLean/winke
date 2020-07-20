@@ -120,7 +120,7 @@ const HeroSection = styled(Section)`
       }
       position: absolute;
       display: block;
-      bottom: 4rem;
+      bottom: 2rem;
       a {
         font-weight: 400;
       }
