@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { T } from './index';
+import { T, Docs } from './index';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -20,6 +20,7 @@ const Tabs = ({ tabs }) => {
       </div>
       <TabText>
         <T translationKey={tabs[selectedTab] + 'Text'} />
+        <Docs tab={tabs[selectedTab]}></Docs>
       </TabText>
     </div>
   );

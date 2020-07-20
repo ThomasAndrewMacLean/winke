@@ -142,9 +142,7 @@ const Boom = styled.img`
   padding: 0.3em;
   cursor: pointer;
   transition: transform 200ms ease-out;
-  /* &:hover {
-    transform: scale(1.05);
-  } */
+
   @media (max-width: ${(props) => props.theme.medium}) {
     /* width: 50%; */
   }
