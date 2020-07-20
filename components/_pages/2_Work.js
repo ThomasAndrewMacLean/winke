@@ -7,12 +7,35 @@ import marked from 'marked';
 
 const WorkSection = () => {
   const refModal = useRef(null);
+
   const ref = useRef(null);
   const picsRaw = useContext(PictureContext);
   const pics = picsRaw.filter((x) => x.name && !x.home);
   const [picSelected, setPicSelected] = useState(pics[0].id);
   const [subSelected, setSubSelected] = useState(0);
   const [fullScreen, setFullScreen] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const keyPress = (e) => {
+    if (
+      e.key === 'ArrowRight' &&
+      subSelected !== pics.find((x) => x.id === picSelected).pic.length - 1
+    ) {
+      setLoading(true);
+      setSubSelected(subSelected + 1);
+    } else if (e.key === 'ArrowLeft' && subSelected !== 0) {
+      setLoading(true);
+
+      setSubSelected(subSelected - 1);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener('keydown', keyPress);
+    return () => {
+      document.removeEventListener('keydown', keyPress);
+    };
+  }, [subSelected]);
+
   useEffect(() => {
     pics.forEach((p) => {
       p.pic.forEach((z) => {
@@ -23,9 +46,16 @@ const WorkSection = () => {
   });
   useEffect(() => {
     if (refModal && refModal.current) {
+      const temp = new Image();
+      temp.src = pics.find((x) => x.id === picSelected).pic[
+        subSelected
+      ].thumbnails.large.url;
+      temp.onload = () => {
+        setLoading(false);
+      };
       refModal.current.src = pics.find((x) => x.id === picSelected).pic[
         subSelected
-      ].url;
+      ].thumbnails.large.url;
     }
   }, [fullScreen, subSelected]);
 
@@ -49,6 +79,7 @@ const WorkSection = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
+                  setLoading(true);
                   setSubSelected(subSelected - 1);
                 }}
               >
@@ -61,6 +92,7 @@ const WorkSection = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
+                  setLoading(true);
                   setSubSelected(subSelected + 1);
                 }}
               >
@@ -71,8 +103,9 @@ const WorkSection = () => {
               ref={refModal}
               src={
                 pics.find((x) => x.id === picSelected).pic[subSelected]
-                  .thumbnails.large.url
+                  .thumbnails.small.url
               }
+              imageIsLoading={loading}
             ></Pic>
           </div>
           {/* <SelectorWrap>
@@ -268,11 +301,11 @@ const Li = styled.li`
   font-weight: ${(props) => props.active && 'bold'};
   color: ${(props) => props.active && 'black'};
 `;
-const Sub = styled.p`
-  color: ${(props) => props.active && 'black'};
-  font-weight: ${(props) => props.active && 'bold'};
-  /* font-weight: ${(props) => props.active && 'bold'}; */
-`;
+// const Sub = styled.p`
+//   color: ${(props) => props.active && 'black'};
+//   font-weight: ${(props) => props.active && 'bold'};
+//   /* font-weight: ${(props) => props.active && 'bold'}; */
+// `;
 const Subs = styled.div`
   position: absolute;
 
@@ -339,6 +372,8 @@ const Pic = styled.img`
   margin: 0 4rem;
   margin-left: calc(35% + 4rem);
   cursor: pointer;
+  filter: ${(props) => props.imageIsLoading && 'blur(2px)'};
+  overflow: hidden;
 `;
 const Lijst = styled.div`
   /*  THIS IS TO HAVE IT NICELY NEXT TO THE PICTURE */

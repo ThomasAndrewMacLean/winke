@@ -136,7 +136,7 @@ const Boom = styled.img`
   width: 100%;
 
   height: auto;
-
+  background-color: black;
   object-fit: cover;
   object-position: 50% 50%;
   padding: 0.3em;
