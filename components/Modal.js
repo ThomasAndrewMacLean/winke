@@ -34,6 +34,11 @@ const ModalBack = styled.div`
     height: 90vh;
     width: auto;
     margin: auto;
+    @media (max-width: ${(props) => props.theme.small}) {
+      width: 100vw;
+      max-width: 400px;
+      height: auto;
+    }
   }
   figcaption {
     color: white;
