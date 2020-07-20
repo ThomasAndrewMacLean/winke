@@ -82,6 +82,10 @@ const Text = styled.div`
     padding-right: 2rem;
     margin-top: 2rem;
   }
+
+  @media (max-width: ${(props) => props.theme.medium}) {
+    margin-bottom: 6rem;
+  }
 `;
 const TreeWrap = styled.div`
   position: relative;
