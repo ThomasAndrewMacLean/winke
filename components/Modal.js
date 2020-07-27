@@ -11,7 +11,7 @@ const Modal = ({ picSrc, title, close }) => {
     <ModalBack onClick={close}>
       <figure>
         <img ref={ref} src={picSrc.small}></img>
-        {title && <figcaption>{(title || '').split('.')[0]}</figcaption>}
+        {title && <figcaption>{title || ''}</figcaption>}
       </figure>
     </ModalBack>
   );

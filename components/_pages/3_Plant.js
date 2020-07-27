@@ -22,7 +22,7 @@ const ExpoSection = () => {
           close={() => {
             setBigTree(null);
           }}
-          title={bigTree.name}
+          title={bigTree.name.split(':').join('.')}
         ></Modal>
       )}
       <PageTitle titleName="plant a treeTitle"></PageTitle>

@@ -42,7 +42,7 @@ export const getMouflon = (context) => {
 
 export const getTermietenberg = (context) => {
   return context
-    .find((p) => p.id == 'termietenberg')
+    .find((p) => p.id == 'bushranger')
     .pic.filter((x) => x.thumbnails)
     .map((x) => {
       return { small: x.thumbnails.large.url, large: x.url, name: x.filename };
