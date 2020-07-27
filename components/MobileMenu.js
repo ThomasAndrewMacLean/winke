@@ -37,7 +37,7 @@ const MobileMenu = () => {
               key={link + index}
               activeLink={currentNavLink === link}
             >
-              <a href={'#' + link}>
+              <a href={'#' + link} target="_self">
                 <T translationKey={link + 'Title'}></T>
               </a>
             </NavLink>
