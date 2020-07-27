@@ -78,7 +78,7 @@ const Sub = styled.p`
 `;
 const Text = styled.div`
   @media (min-width: ${(props) => props.theme.medium}) {
-    max-width: calc(35% + 4rem);
+    min-width: calc(35% + 4rem);
     padding-right: 2rem;
     margin-top: 2rem;
   }
