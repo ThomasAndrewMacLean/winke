@@ -61,6 +61,7 @@ const SiteFooter = styled.footer`
   }
   .copyright {
     font-size: 10px;
+    line-height: 1.5rem;
     pointer-events: all;
     a {
       padding-bottom: 0.5rem;
