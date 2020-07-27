@@ -23,4 +23,4 @@ smooth scroll safari:
 https://dev.to/jonaskuske/comment/8n5j
 
 TODO:
-- 
+- remove privacy and terms

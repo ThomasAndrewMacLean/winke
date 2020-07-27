@@ -367,6 +367,7 @@ const Uitleg = styled.div`
 const Pic = styled.img`
   //outline: 1px solid #333;
   height: 50vh;
+  object-position: center top;
   width: 30%;
   object-fit: cover;
   margin: 0 4rem;

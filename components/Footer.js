@@ -15,9 +15,9 @@ const Footer = () => {
   return (
     <SiteFooter>
       <span className="copyright">
-        <a href="/privacy" target="_blank">
+        {/* <a href="/privacy" target="_blank">
           <T translationKey="privacy" />
-        </a>
+        </a> */}
         © 2010-{new Date().getFullYear()} Winke Besard
       </span>
 
