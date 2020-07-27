@@ -26,11 +26,13 @@ const ExpoSection = () => {
 const Wrap = styled.div`
   p {
     //color: red;
+    padding-top: 1rem;
   }
   h1,
   h2,
   h3 {
     margin-top: 2rem;
+    color: black;
   }
 `;
 // const Iframe = styled.iframe`
