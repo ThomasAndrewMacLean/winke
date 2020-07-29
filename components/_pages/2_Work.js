@@ -369,7 +369,7 @@ const Pic = styled.img`
   height: 50vh;
   object-position: center top;
   width: 30%;
-  object-fit: cover;
+  object-fit: contain;
   margin: 0 4rem;
   margin-left: calc(35% + 4rem);
   cursor: pointer;
