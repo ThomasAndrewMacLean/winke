@@ -343,7 +343,7 @@ const Subs = styled.div`
     margin-left: 5px;
     cursor: pointer;
     &:hover {
-      color: black;
+      color: var(--black);
     }
   }
 `;
@@ -364,7 +364,7 @@ const Uitleg = styled.div`
   }
   h4 {
     margin-bottom: 1rem;
-    color: black;
+    color: var(--black);
   }
 `;
 const Pic = styled.img`

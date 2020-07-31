@@ -10,6 +10,7 @@
   --light: #999;
   --white: #fff;
   --white-opaque: #ffffffa3;
+  --black: #444;
 }
 * {
   margin: 0;

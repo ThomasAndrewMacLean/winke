@@ -32,7 +32,7 @@ const Wrap = styled.div`
   h2,
   h3 {
     margin-top: 2rem;
-    color: black;
+    color: var(--black);
   }
 `;
 // const Iframe = styled.iframe`
