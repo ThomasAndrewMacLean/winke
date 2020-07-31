@@ -389,7 +389,7 @@ const Lijst = styled.div`
 
   position: absolute;
   right: 10px;
-  top: 70px;
+  /* top: 70px; */
   ul {
     list-style: none;
   }
