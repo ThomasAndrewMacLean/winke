@@ -10,7 +10,10 @@ const WorkSection = () => {
 
   const ref = useRef(null);
   const picsRaw = useContext(PictureContext);
-  const pics = picsRaw.filter((x) => x.name && !x.home);
+  const pics = picsRaw
+    .filter((x) => x.name && !x.home)
+    .sort((a, b) => a.id - b.id);
+
   const [picSelected, setPicSelected] = useState(pics[0].id);
   const [subSelected, setSubSelected] = useState(0);
   const [fullScreen, setFullScreen] = useState(false);
