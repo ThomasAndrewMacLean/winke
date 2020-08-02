@@ -82,7 +82,7 @@ const Caroussel = () => {
     <ScrollWrapper>
       <Scroll ref={ref}>
         <div ref={firstRef}></div>
-        {imagesArr.map((a) => {
+        {imagesArr.filter(Boolean).map((a) => {
           return (
             <ScrollItem key={a}>
               <Image imageId={a.toString()} showName></Image>
