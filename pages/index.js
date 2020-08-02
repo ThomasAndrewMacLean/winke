@@ -22,8 +22,8 @@ import PropTypes from 'prop-types';
 const IndexPage = ({ translations, pics, projects }) => {
   return (
     <BomenContext.Provider value={projects}>
-      <PictureContext.Provider value={pics}>
-        <TranslationContext.Provider value={translations}>
+      <PictureContext.Provider value={pics.filter((p) => p.name)}>
+        <TranslationContext.Provider value={translations.filter((x) => x.id)}>
           <Layout>
             <Head>
               <title>Winke</title>
