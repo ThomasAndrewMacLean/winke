@@ -235,6 +235,25 @@ const WorkSection = () => {
 
           <ul>
             {pics
+              .filter((p) => p.category === 'in opdracht')
+              .map((p, i) => {
+                return (
+                  <Li
+                    active={picSelected === p.id}
+                    onClick={() => {
+                      setPicSelected(p.id);
+                      setSubSelected(0);
+                    }}
+                    key={i}
+                  >
+                    {p.name}
+                  </Li>
+                );
+              })}
+          </ul>
+
+          <ul>
+            {pics
               .filter((p) => p.category === 'studies')
               .map((p, i) => {
                 return (
