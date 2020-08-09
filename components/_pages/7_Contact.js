@@ -9,9 +9,11 @@ const ContactSection = () => {
   const [message, setMessage] = useState('');
 
   const [emailMailing, setEmailMailing] = useState('');
-
+  const [addedToMailing, setAddedToMailing] = useState(false);
+  const [sentMessage, setSentMessage] = useState(false);
   const sendMessage = (e) => {
     e.preventDefault();
+    setSentMessage(true);
     fetch('https://europe-west1-winke-281620.cloudfunctions.net/function-1', {
       method: 'POST',
       headers: {
@@ -24,6 +26,7 @@ const ContactSection = () => {
 
   const addMailing = (e) => {
     e.preventDefault();
+    setAddedToMailing(true);
     fetch(
       'https://us-central1-winke-281620.cloudfunctions.net/addToMailingList',
       {
@@ -42,52 +45,56 @@ const ContactSection = () => {
       <T translationKey="contactText" />
       <Wrap>
         <Column>
-          <Form onSubmit={sendMessage}>
-            <div className="input-wrap">
-              <label htmlFor="name">
-                <T translationKey="contactName" />
-              </label>
-              <input
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-                type="text"
-                name="name"
-                id="name"
-              />
-            </div>
+          {sentMessage ? (
+            <Thanks>Thanks!!</Thanks>
+          ) : (
+            <Form onSubmit={sendMessage}>
+              <div className="input-wrap">
+                <label htmlFor="name">
+                  <T translationKey="contactName" />
+                </label>
+                <input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  type="text"
+                  name="name"
+                  id="name"
+                />
+              </div>
 
-            <div className="input-wrap">
-              <label htmlFor="email">
-                <T translationKey="contactEmail" />
-              </label>
-              <input
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                type="email"
-                name="email"
-                id="email"
-              />
-            </div>
+              <div className="input-wrap">
+                <label htmlFor="email">
+                  <T translationKey="contactEmail" />
+                </label>
+                <input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  type="email"
+                  name="email"
+                  id="email"
+                />
+              </div>
 
-            <div className="input-wrap">
-              <label htmlFor="message">
-                <T translationKey="contactMessage" />
-              </label>
-              <textarea
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-                name="message"
-                id="message"
-                cols="30"
-                rows="5"
-              ></textarea>
-            </div>
+              <div className="input-wrap">
+                <label htmlFor="message">
+                  <T translationKey="contactMessage" />
+                </label>
+                <textarea
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  required
+                  name="message"
+                  id="message"
+                  cols="30"
+                  rows="5"
+                ></textarea>
+              </div>
 
-            <input type="submit" value="Send" />
-          </Form>
+              <input type="submit" value="Send" />
+            </Form>
+          )}
         </Column>
         <Column>
           <div>
@@ -102,22 +109,26 @@ const ContactSection = () => {
           </div>
 
           <T translationKey="mailinglist" />
-          <FormMailingList onSubmit={addMailing}>
-            <div className="input-wrap">
-              <label htmlFor="emailmailing">
-                <T translationKey="mailinglistLabel" />
-              </label>
-              <input
-                value={emailMailing}
-                onChange={(e) => setEmailMailing(e.target.value)}
-                required
-                type="email"
-                name="emailmailing"
-                id="emailmailing"
-              />
-            </div>
-            <input type="submit" value="Send" />
-          </FormMailingList>
+          {addedToMailing ? (
+            <Thanks>Thank you!</Thanks>
+          ) : (
+            <FormMailingList onSubmit={addMailing}>
+              <div className="input-wrap">
+                <label htmlFor="emailmailing">
+                  <T translationKey="mailinglistLabel" />
+                </label>
+                <input
+                  value={emailMailing}
+                  onChange={(e) => setEmailMailing(e.target.value)}
+                  required
+                  type="email"
+                  name="emailmailing"
+                  id="emailmailing"
+                />
+              </div>
+              <input type="submit" value="Send" />
+            </FormMailingList>
+          )}
         </Column>
       </Wrap>
     </Section>
@@ -187,4 +198,8 @@ const Address = styled.address`
 `;
 const Form = styled.form``;
 
+const Thanks = styled.div`
+  color: #333;
+  margin-top: 2rem;
+`;
 export default ContactSection;
