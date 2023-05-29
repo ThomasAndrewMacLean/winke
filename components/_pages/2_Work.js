@@ -39,34 +39,30 @@ const WorkSection = () => {
     };
   }, [subSelected]);
 
-  useEffect(() => {
-    pics.forEach((p) => {
-      p.pic.forEach((z) => {
-        const i = new Image();
-        i.src = z.thumbnails.small.url;
-      });
-    });
-  });
+  // useEffect(() => {
+  //   pics.forEach((p) => {
+  //     p.pic.forEach((z) => {
+  //       const i = new Image();
+  //       i.src = z.thumbnails.small.url;
+  //     });
+  //   });
+  // });
   useEffect(() => {
     if (refModal && refModal.current) {
       const temp = new Image();
-      temp.src = pics.find((x) => x.id === picSelected).pic[
-        subSelected
-      ].thumbnails.large.url;
+      temp.src = '/images/thumbs/' + picSelected + '-' + subSelected;
+
       temp.onload = () => {
         setLoading(false);
       };
-      refModal.current.src = pics.find((x) => x.id === picSelected).pic[
-        subSelected
-      ].thumbnails.large.url;
+      refModal.current.src =
+        '/images/thumbs/' + picSelected + '-' + subSelected;
     }
   }, [fullScreen, subSelected]);
 
   useEffect(() => {
     if (ref && ref.current) {
-      ref.current.src = pics.find((x) => x.id === picSelected).pic[
-        subSelected
-      ].thumbnails.large.url;
+      ref.current.src = '/images/thumbs/' + picSelected + '-' + subSelected;
     }
   }, [picSelected, subSelected]);
   const zoom = () => {
@@ -104,10 +100,7 @@ const WorkSection = () => {
             )}
             <Pic
               ref={refModal}
-              src={
-                pics.find((x) => x.id === picSelected).pic[subSelected]
-                  .thumbnails.small.url
-              }
+              src={'/images/thumbs/small/' + picSelected + '-' + subSelected}
               imageIsLoading={loading}
             ></Pic>
           </div>
@@ -207,10 +200,7 @@ const WorkSection = () => {
         <Pic
           onClick={zoom}
           ref={ref}
-          src={
-            pics.find((x) => x.id === picSelected).pic[subSelected].thumbnails
-              .small.url
-          }
+          src={'/images/thumbs/small/' + picSelected + '-' + subSelected}
           loading="lazy"
         ></Pic>
         <Lijst>
