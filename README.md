@@ -1,6 +1,7 @@
 Create a airtable, with base NEXT, columns id and NL
 add keys to .env (and to github secrets)
 
+
 add script to block in airtable to trigger deployment
 
 find and replace every winke with the name of your new repo
