@@ -16,8 +16,8 @@ export const getBomen = (context) => {
     .find((p) => p.id == 'bomen')
 
     .pic.filter((x) => x.thumbnails)
-    .map((x) => {
-      return { small: x.thumbnails.large.url, large: x.url, name: x.filename };
+    .map((x, index) => {
+      return { small: "/images/thumbs/bomen-" + index, large: "/images/bomen-" + index, name: x.filename };
     });
 };
 
@@ -25,8 +25,8 @@ export const getBushranger = (context) => {
   return context
     .find((p) => p.id == 'bushranger')
     .pic.filter((x) => x.thumbnails)
-    .map((x) => {
-      return { small: x.thumbnails.large.url, large: x.url, name: x.filename };
+    .map((x,index) => {
+      return { small: "/images/thumbs/bushranger-" + index, large: "/images/bushranger-" + index, name: x.filename };
     });
 };
 
@@ -34,8 +34,8 @@ export const getMouflon = (context) => {
   return context
     .find((p) => p.id == 'mouflon')
     .pic.filter((x) => x.thumbnails)
-    .map((x) => {
-      return { small: x.thumbnails.large.url, large: x.url, name: x.filename };
+    .map((x,index) => {
+      return { small: "/images/thumbs/mouflon-" + index, large: "/images/mouflon-" + index, name: x.filename  };
     });
 };
 
@@ -43,8 +43,8 @@ export const getTermietenberg = (context) => {
   return context
     .find((p) => p.id == 'termite mountain')
     .pic.filter((x) => x.thumbnails)
-    .map((x) => {
-      return { small: x.thumbnails.large.url, large: x.url, name: x.filename };
+    .map((x,index) => {
+      return { small: "/images/thumbs/termite mountain-" + index, large: "/images/termite mountain-" + index, name: x.filename  };
     });
 };
 

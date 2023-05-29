@@ -23,7 +23,7 @@ const Docs = ({ tab }) => {
         console.log(x);
         return (
           <li key={i}>
-            <a href={x.url} download={x.filename}>
+            <a href={"/WinkeBesard.pdf"} download={x.filename}>
               {x.filename}
             </a>
           </li>
