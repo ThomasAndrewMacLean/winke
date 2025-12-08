@@ -4,12 +4,11 @@ import {
   Layout,
   Hero,
   Resources,
-  Show,
+  
   Contact,
   Work,
   Observer,
-  Plant,
-  Invasion,
+ 
 } from '../components';
 import { getDataFromAirtable } from '../utils';
 import {
@@ -40,15 +39,15 @@ const IndexPage = ({ translations, pics, projects }) => {
             <Observer id="work">
               <Work></Work>
             </Observer>
-            <Observer id="plant a tree">
+            {/* <Observer id="plant a tree">
               <Plant></Plant>
-            </Observer>
-            <Observer id="invasion">
+            </Observer> */}
+            {/* <Observer id="invasion">
               <Invasion></Invasion>
-            </Observer>
-            <Observer id="shows">
+            </Observer> */}
+            {/* <Observer id="shows">
               <Show></Show>
-            </Observer>
+            </Observer> */}
             <Observer id="resources">
               <Resources></Resources>
             </Observer>

@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import { Section } from '../../styles';
-import { Caroussel, PageTitle } from '../index';
-import { PictureContext } from '../../utils/contexts';
+import { Caroussel, PageTitle , T} from '../index';
+import { PictureContext, BomenContext } from '../../utils/contexts';
 import styled from 'styled-components';
 import marked from 'marked';
 
@@ -9,11 +9,22 @@ const WorkSection = () => {
   const refModal = useRef(null);
 
   const ref = useRef(null);
+  const bomenRaw = useContext(BomenContext);
   const picsRaw = useContext(PictureContext);
-  const pics = picsRaw
-    .filter((x) => x.name && !x.home)
-    .sort((a, b) => a.id - b.id);
+  const pics = [
+    ...picsRaw.filter((x) => x.name && !x.home).sort((a, b) => a.id - b.id),
+    ...bomenRaw.map((b) => {
+      return {
+        id: b.id,
+        name: b.id,
+        description: '',
+        pic: b.pic,
+        category: 'bomen',
+      };
+    }),
+  ];
 
+  console.log("pics",pics)
   const [picSelected, setPicSelected] = useState(pics[0].id);
   const [subSelected, setSubSelected] = useState(0);
   const [fullScreen, setFullScreen] = useState(false);
@@ -221,6 +232,23 @@ const WorkSection = () => {
                   </Li>
                 );
               })}
+         
+            {bomenRaw.map((p, i) => {
+              return (
+                <Li
+                  active={picSelected === p.id}
+                  onClick={() => {
+                    setPicSelected(p.id);
+                    setSubSelected(0);
+                  }}
+                  key={i}
+                   
+                >
+                  <T translationKey={p.id}></T>
+                 
+                </Li>
+              );
+            })}
           </ul>
 
           <ul>
