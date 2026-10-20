@@ -136,7 +136,14 @@ const WorkSection = () => {
       )}
       <PageTitle titleName="workTitle"></PageTitle>
 
-      <Caroussel />
+      <Caroussel
+        projects={[
+          ...pics.filter((p) => p.category === 'work'),
+          ...pics.filter((p) => p.category === 'bomen'),
+          ...pics.filter((p) => p.category === 'in opdracht'),
+          ...pics.filter((p) => p.category === 'studies'),
+        ]}
+      />
       <Big>
         <Uitleg>
           <h4>{pics.find((x) => x.id === picSelected).name}</h4>

@@ -5,12 +5,12 @@ import { getImageUrl, getImageName, getImageDescriptions } from '../utils';
 import styled from 'styled-components';
 import marked from 'marked';
 
-const Image = ({ imageId, showName, children }) => {
+const Image = ({ imageId, imageIndex = 0, showName, children }) => {
   const [click, clickSet] = useState(false);
   const pics = useContext(PictureContext);
   return (
     <ImageWrap showName={showName} onClick={() => clickSet(!click)}>
-      <img src={getImageUrl(pics, imageId)}></img>
+      <img src={getImageUrl(pics, imageId, false, imageIndex)}></img>
       {children}
       {showName && click && (
         <ImageName>
@@ -60,6 +60,7 @@ const ImageName = styled.span`
 `;
 Image.propTypes = {
   imageId: PropTypes.string.isRequired,
+  imageIndex: PropTypes.number,
   showName: PropTypes.bool,
   children: PropTypes.node,
 };

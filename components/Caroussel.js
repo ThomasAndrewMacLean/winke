@@ -1,11 +1,10 @@
-import React, { useRef, useEffect, useState, useContext } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Image } from './index';
 import styled from 'styled-components';
 import { PictureContext } from '../utils/contexts';
+import PropTypes from 'prop-types';
 
-const Caroussel = () => {
-  const pics = useContext(PictureContext);
-  const imagesArr = pics.filter((p) => !p.home).map((p) => p.id);
+const Caroussel = ({ projects }) => {
   const ref = useRef();
   const firstRef = useRef();
   const lastRef = useRef();
@@ -82,13 +81,19 @@ const Caroussel = () => {
     <ScrollWrapper>
       <Scroll ref={ref}>
         <div ref={firstRef}></div>
-        {imagesArr.filter(Boolean).map((a) => {
-          return (
-            <ScrollItem key={a}>
-              <Image imageId={a.toString()} showName></Image>
-            </ScrollItem>
-          );
-        })}
+        <PictureContext.Provider value={projects}>
+          {projects.map((project) =>
+            project.pic.map((_, imageIndex) => (
+              <ScrollItem key={`${project.id}-${imageIndex}`}>
+                <Image
+                  imageId={project.id.toString()}
+                  imageIndex={imageIndex}
+                  showName
+                ></Image>
+              </ScrollItem>
+            ))
+          )}
+        </PictureContext.Provider>
         <div ref={lastRef}></div>
       </Scroll>
       {showBackArrow && (
@@ -97,6 +102,15 @@ const Caroussel = () => {
       {showNextArrow && <NextButton onClick={scrollNext}>→</NextButton>}
     </ScrollWrapper>
   );
+};
+
+Caroussel.propTypes = {
+  projects: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      pic: PropTypes.array.isRequired,
+    })
+  ).isRequired,
 };
 
 const ScrollWrapper = styled.div`

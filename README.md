@@ -1,3 +1,7 @@
+INFO 2026: to run this first use "nvm use 12" to use older npm veresion
+
+to deploy you sould run npm run deploy and then push it
+
 Create a airtable, with base NEXT, columns id and NL
 add keys to .env (and to github secrets)
 
@@ -25,3 +29,7 @@ https://dev.to/jonaskuske/comment/8n5j
 
 TODO:
 - remove privacy and terms
+
+The mobile work carousel includes every image from the desktop galleries, in
+desktop list order: work, project galleries, commissioned work, then studies.
+Images within each gallery retain their original order.

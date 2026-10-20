@@ -5,10 +5,12 @@ export const add = (a, b) => {
 const isProduction = process.env.NODE_ENV === 'production';
 export const prefix = isProduction ? '' : '';
 
-export const getImageUrl = (context, id, full) => {
+export const getImageUrl = (context, id, full, imageIndex = 0) => {
   console.log('id', id);
   if (!context.find((p) => p.id == id)) return '';
-  return full ? '/images/' + id + '-0' : '/images/thumbs/' + id + '-0';
+  return full
+    ? '/images/' + id + '-' + imageIndex
+    : '/images/thumbs/' + id + '-' + imageIndex;
 };
 
 export const getBomen = (context) => {
